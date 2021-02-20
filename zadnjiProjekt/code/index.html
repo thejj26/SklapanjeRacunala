@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--CSS and meta tags-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Configurator | Home</title>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav>
+        <div class="nav-wrapper">
+            <a class="brand-logo">PCC</a>
+        </div>
+    </nav>
+
+    <!--Top text and buttons-->
+    <div class="row buttons" id="topText">
+        <div class="col s12 m12 l12 center-align">
+            <p class="title flow-text">PC Configurator</p>
+            <p class="text flow-text">PC Configurator is a webiste designed to make PC building easy and accessible to
+                everyone.
+                We have a selection of PC building guides and tools at your disposal. The best part - it's totally
+                free!</p>
+            <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">Build your PC<i
+                    class="material-icons right flow-text">build</i></a>
+            <p class="text">OR</p>
+            <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">Automatic PC configurator<i
+                    class="material-icons right flow-text">edit</i></a>
+        </div>
+    </div>
+
+    <!--Building guide-->
+    <div class="buildGuide row">
+        <div class="col s12 m12 l12">
+            <p class="title flow-text">Choosing the right components</p>
+            <p class="text flow-text">Choosing the right components for your brand new PC can be hard, especially if you
+                know nothing about PCs. In this guide, we will show you all you need to know about PC components. Simply
+                click on one of the components to learn about it.</p>
+        </div>
+        <!--CPU-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#cpuModal">Processor
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\cpu.png" class="responsive-img">
+            </a>
+            <div id="cpuModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Processor</p>
+                    <p class="text flow-text">The processor, also know as the <b>CPU</b>, is the brain of your computer.
+                        It does
+                        all of the calculations and operations you throw at it. There are only two processor brands.
+                        <b>Intel</b> and <b>AMD</b>. While both of them make good processors, Intel is better for
+                        gaming, while
+                        AMD is better for workstations. You should spend between 20% and 30% of your budget on your
+                        processor.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--GPU-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#gpuModal">Graphics card
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\gpu.png" class="responsive-img">
+            </a>
+            <div id="gpuModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Graphics card</p>
+                    <p class="text flow-text">The graphics card, also known as the <b>GPU</b>, is probably the most
+                        important
+                        component if you are want a gaming or workstation based PC. There are two graphics card chip
+                        makers:
+                        <b>Nvidia</b> and <b>AMD</b>. There are also a lot of 3rd party brands that use those chips and
+                        just
+                        make the rest of the graphics card. Those are the ones you will most likely find, as the
+                        so-called
+                        <b>"founder's edition"</b> graphics cards(that are entirely 1st party) are very rare. You should
+                        spend
+                        around 40% of your budget on your graphics card. Some processors have intergrated graphics, and
+                        don't
+                        need dedicated graphics cards. Those processors have a <b>G</b> at the end of their name(AMD) or
+                        don't
+                        have <b>K</b>, <b>X</b> or <b>F</b> at the end of their name(Intel).</p>
+                </div>
+            </div>
+        </div>
+        <!--Motherboard-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#mbModal">Motherboard
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\mb.png" class="responsive-img">
+            </a>
+            <div id="mbModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Motherboard</p>
+                    <p class="text flow-text">The motherboard makes all of your components communicate. Every component
+                        is
+                        plugged into it. They all differ mainly by their <b>chipset</b> and <b>socket</b>. Depending on
+                        which
+                        CPU you have, you will need a diffirent socket(<b>AM</b> for AMD and <b>LGA</b> for Intel). It
+                        is
+                        recommended that you spend less than your CPU on your motherboard. For most users, the
+                        motherboard
+                        features don't even matter.</p>
+                </div>
+            </div>
+        </div>
+        <!--RAM-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#ramModal">Memory
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\ram.png" class="responsive-img">
+            </a>
+            <div id="ramModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Memory</p>
+                    <p class="text flow-text">Memory, also known as <b>RAM</b> is where all of your running apps are
+                        stored.
+                        Once you power off the computer, the memory get wiped clean. There are multiple aspects too look
+                        for
+                        when choosing memory.<br>
+                        <b>Memory speed</b> measures how often your memory communicates with your CPU(measured in MHz).
+                        AMD
+                        CPUs benefit much more from higher memory speed. It is recommended to have a memory speed of
+                        3000MHz or
+                        higher for AMD CPUs.<br>
+                        The <b>latency</b> or <b>CAS timing</b> is how much cycles it takes for your RAM to send data
+                        requested
+                        by the CPU. Generally, everything below <b>CL-20</b> is considered OK, and everything below
+                        <b>CL-17</b>
+                        is considered fast.<br>
+                        The <b>number of memory sticks</b> affects your performance the most. It simply tells you how
+                        many
+                        sticks of RAM you are getting in the package. One is Ok for simple tasks, but having two or more
+                        significantly increases performance, as long as you install them in <b>dual-channel mode</b>.
+                        The
+                        possible amount of ram sticks can be 1, 2, 4, 8, 16 and even 32. Most computers use 1-4 RAM
+                        sticks since
+                        that is what most motherboards support.<br>
+                        The <b>capacity</b> of your RAM simply tells you how much <b>GB</b> of RAM you are getting. 4GB
+                        is
+                        enough for very slight tasks, 8GB is enough for some gaming or every-day tasks, 16GB is OK for
+                        most
+                        games and workstation applications while 32GB+ is only used in expensive beastly computers that
+                        can
+                        handle everything you throw at them.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Storage-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#storageModal">Storage
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\storage.png" class="responsive-img">
+            </a>
+            <div id="storageModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Storage</p>
+                    <p class="text flow-text">The storage does what the name says - it stores all of your data, even
+                        when
+                        your
+                        PC is off. There are 3
+                        types of storage: <b>SSD</b>, <b>HDD</b> and <b>hybrid</b> drives. SSDs are the fastes of them
+                        all
+                        by a
+                        lot. They don't have as much storage as the other parts and cost more. HDDs are the slowest but
+                        they
+                        have the most storage and cost the least. Hybrid drives or SSHDs are a hybrid of the two. They
+                        are
+                        faster than HDDs but slower than SSDs but have more storage than SSDs. Their cost is somewhere
+                        inbewteen
+                        the two. There are mulpitle for factor: <b>3.5"</b>(HDDs and SSHDs), <b>2.5"</b>(SSDs),
+                        <b>M.2</b>(SSDs), and <b>PCIe</b>(SSDs).</p>
+                </div>
+            </div>
+        </div>
+        <!--PSU-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#psuModal">Power supply
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\psu.png" class="responsive-img">
+            </a>
+            <div id="psuModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Power supply</p>
+                    <p class="text flow-text">The power supply, or the <b>PSU</b> is responsible for powering your
+                        system.
+                        <b>Modular</b> PSUs have all the cables seperate, so you can only plug in the ones you need.
+                        <b>Non-modular</b> PSUs have all the cables attached. It is important not to cheap out on your
+                        PSU
+                        and
+                        only buy from trusted brands. Those brands are: <b>Corsair</b>, <b>Coolermaster</b>,
+                        <b>Asus</b>,
+                        <b>Gigabyte</b>, <b>Silverstone</b>, <b>be quiet!</b>, <b>Phanteks</b>, <b>Thermaltake</b>,
+                        <b>Seasonic</b> and <b>Fractal Design</b>. You should always get a PSU with more wattage than
+                        you
+                        need.
+                        For example, if your system uses 400W you should get a 550W PSU. Better PSUs also have power
+                        ratings.
+                        These tell you how good their power efficiency is. They start with <b>80+</b> and go all the way
+                        up
+                        to
+                        <b>80+ Platinum</b>.</p>
+                </div>
+            </div>
+        </div>
+        <!--Case-->
+        <div class="col s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#caseModal">Case
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\case.png" class="responsive-img">
+            </a>
+            <div id="caseModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Case</p>
+                    <p class="text flow-text">The case houses all of your components. The only performance factor of
+                        cases is their airloflow. Some come with preinstalled fans, more intake space and much more. The
+                        case is often the cheapest part of any PC.</p>
+                </div>
+            </div>
+        </div>
+        <!--Cooling-->
+        <div class="cl s12 m12 l3 center-align">
+            <a class="waves-effect waves-light modal-trigger title flow-text" href="#coolingModal">Cooling
+                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\cooling.png" class="responsive-img">
+            </a>
+            <div id="coolingModal" class="modal">
+                <div class="modal-content">
+                    <p class="title flow-text">Cooling</p>
+                    <p class="text flow-text">Most of your components need cooling. Some of them, like the CPU, GPU and
+                        PSU usually come with one or more fans. But sometimes that is not enough, especially for more
+                        powerful hardware. There are 3 types of coolers. <br><b>CPU coolers</b> cool the CPU. They can
+                        be water coolers or air coolers.<br><b>GPU coolers</b> cool the GPU. Most GPUs come with
+                        excelent air-cooling but you can step it up further with a custom water cooler.<br><b>Case
+                            coolers</b> or <b>case fans</b> are as they sound - fans that are mounted inside the case
+                        and help with the intake of cold air and with the exhaust of hot air.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
