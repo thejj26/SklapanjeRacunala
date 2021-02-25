@@ -1,17 +1,14 @@
 nav {
     background-color: #271675 !important;
+    display: flex;
 }
 
-.naw-wrapper {
-    position: sticky;
-    z-index: 1;
+.intro {
+    margin-top: 5vh;
+    justify-content: center;
+    display: flex;
 }
 
-.buttons {
-    margin-top: 15vh;
-    opacity: 0;
-    transition: .5s ease-in-out;
-}
 
 .title {
     color: #543cc0 !important;
@@ -38,16 +35,16 @@ p {
 }
 
 .buildGuide {
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 
-.buttons .text {
+.intro .text {
     margin: 3vh;
     margin-left: 10vw;
     margin-right: 10vw;
 }
 
-img {
+.carousel-item img {
     display: block;
     margin: 0 !important;
     padding: 0 !important;
@@ -57,7 +54,7 @@ img {
     margin: 0;
 }
 
-.buttons .title {
+.intro .title {
     font-family: 'Courier Prime', monospace;
 }
 
@@ -88,4 +85,10 @@ img {
     margin-top: 0;
     padding-top: 0;
     height: 30vh;
+}
+
+#floatIn {
+    opacity: 0;
+    transition: .5s ease-in-out;
+    margin-top: 20vh;
 }

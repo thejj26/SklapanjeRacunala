@@ -13,7 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PC Configurator | Home</title>
-
 </head>
 
 <body>
@@ -23,81 +22,91 @@
             <a class="brand-logo">PCC</a>
         </div>
     </nav>
+    <div id="floatIn">
+        <!--Top text and buttons-->
+        <div class="row intro" id="topText">
+            <div class="col s12 m12 l12 center-align">
+                <img class="responsive-img"
+                    src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/logo.png?raw=true">
+                <p class="text flow-text">PC Configurator is a webiste designed to make PC building easy and accessible
+                    to
+                    everyone.
+                    We have a selection of PC building guides and tools at your disposal. The best part - it's totally
+                    free!</p>
+                <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">PC Builder<i
+                        class="material-icons right flow-text">build</i></a>
+            </div>
+        </div>
 
-    <!--Top text and buttons-->
-    <div class="row buttons" id="topText">
-        <div class="col s12 m12 l12 center-align">
-            <img class="responsive-img" src="resources\logo.png">
-            <p class="text flow-text">PC Configurator is a webiste designed to make PC building easy and accessible to
-                everyone.
-                We have a selection of PC building guides and tools at your disposal. The best part - it's totally
-                free!</p>
-            <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">Build a PC<i
-                    class="material-icons right flow-text">build</i></a>
-            <p class="text">OR</p>
-            <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">Auto Builder<i
-                    class="material-icons right flow-text">edit</i></a>
+        <!--Building guide-->
+        <div class="buildGuide row">
+            <div class="col s12 m12 l12 center-align">
+                <p class="title flow-text">Choosing the right components</p>
+                <p class="text flow-text">Choosing the right components for your brand new PC can be hard, especially if
+                    you
+                    know nothing about PCs. In this guide, we will show you all you need to know about PC components.
+                    Simply
+                    click on one of the components to learn about it.</p>
+            </div>
         </div>
-    </div>
-
-    <!--Building guide-->
-    <div class="buildGuide row">
-        <div class="col s12 m12 l12 center-align">
-            <p class="title flow-text">Choosing the right components</p>
-            <p class="text flow-text">Choosing the right components for your brand new PC can be hard, especially if you
-                know nothing about PCs. In this guide, we will show you all you need to know about PC components. Simply
-                click on one of the components to learn about it.</p>
+        <!--Carousel-->
+        <div class="carousel components center-align">
+            <div class="carousel-item col s12 m6 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#cpuModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/cpu.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#gpuModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/gpu.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#mbModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/mb.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#ramModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/ram.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#storageModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/storage.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#psuModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/psu.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item col s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#caseModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/case.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
+            <div class="carousel-item cl s12 m12 l3 center-align">
+                <a class="waves-effect waves-light modal-trigger title flow-text" href="#coolingModal">
+                    <img src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/cooling.png?raw=true"
+                        class="responsive-img">
+                </a>
+            </div>
         </div>
-    </div>
-    <!--Carousel-->
-    <div class="carousel components center-align">
-        <div class="carousel-item col s12 m6 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#cpuModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\cpu.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#gpuModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\gpu.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#mbModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\mb.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#ramModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\ram.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#storageModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\storage.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#psuModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\psu.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item col s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#caseModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\case.png" class="responsive-img">
-            </a>
-        </div>
-        <div class="carousel-item cl s12 m12 l3 center-align">
-            <a class="waves-effect waves-light modal-trigger title flow-text" href="#coolingModal">
-                <img src="C:\Users\Jakov\Desktop\edit\zadnjiProjekt\resources\cooling.png" class="responsive-img">
-            </a>
-        </div>
-    </div>
-    <div class="row center-align">
-        <div class="col s6 m6 l6">
-            <i class="small material-icons flow-text center-align left-arrow" id="prev">keyboard_arrow_left</i>
-        </div>
-        <div class="col s6 m6 l6">
-            <i class="small material-icons flow-text center-align right-arrow" id="next">keyboard_arrow_right</i>
+        <div class="row center-align">
+            <div class="col s6 m6 l6">
+                <i class="small material-icons flow-text center-align left-arrow" id="prev">keyboard_arrow_left</i>
+            </div>
+            <div class="col s6 m6 l6">
+                <i class="small material-icons flow-text center-align right-arrow" id="next">keyboard_arrow_right</i>
+            </div>
         </div>
     </div>
     <!--Modals-->
