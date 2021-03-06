@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC Configurator | Home</title>
+    <title>PC Config</title>
 </head>
 
 <body>
@@ -28,25 +28,30 @@
             <div class="col s12 m12 l12 center-align">
                 <img class="responsive-img"
                     src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/logo.png?raw=true">
-                <p class="text flow-text">PC Configurator is a webiste designed to make PC building easy and accessible
-                    to
-                    everyone.
-                    We have a selection of PC building guides and tools at your disposal. The best part - it's totally
-                    free!</p>
-                <a href="#" class="btn deep-purple darken-4 waves-effect flow-text">PC Builder<i
-                        class="material-icons right flow-text">build</i></a>
+                <div class="container">
+                    <p class="text flow-text">PC Config je web stranica koja olakšava odabir dijelova za vaše novo
+                        računalo. Naša web stranica sadrži kratki opis svake računalne komponente, tako da ne trebate
+                        biti
+                        iskusni informatičar ako želite koristiti sastaviti računalo. Tu je i izvanredan PC Konfigurator
+                        koji ima velik izbor računalnih dijelova s detaljnim specifikacijama. Niste sigurni što
+                        odabrati? Ne brinite, tu je i automatski PC Konfigurator koji će sastaviti računalo prema vašim
+                        potrebama. Uživajte u ovoj ponudi potpuno besplatno!
+                    </p>
+                    <a class="btn deep-purple darken-4 waves-effect flow-text" id="pcBuilderBtn">PC Konfigurator<i
+                            class="material-icons right flow-text">build</i></a>
+                </div>
             </div>
         </div>
 
         <!--Building guide-->
         <div class="buildGuide row">
             <div class="col s12 m12 l12 center-align">
-                <p class="title flow-text">Choosing the right components</p>
-                <p class="text flow-text">Choosing the right components for your brand new PC can be hard, especially if
-                    you
-                    know nothing about PCs. In this guide, we will show you all you need to know about PC components.
-                    Simply
-                    click on one of the components to learn about it.</p>
+                <div class="container">
+                    <p class="title flow-text">Kako odabrati komponente za vaše računalo</p>
+                    <p class="text flow-text">Biranje pravih komponenti za vaše računalo može biti težak zadatak. Ali mi
+                        smo tu da vam pomognemo! Ispod ćete pronaći sve što trebate znati o računalnim komponentama.
+                        Jednostavno kliknite sliku bilo koje komponente i pojavit će se tekst sa svim informacijama.</p>
+                </div>
             </div>
         </div>
         <!--Carousel-->
@@ -265,9 +270,73 @@
                     and help with the intake of cold air and with the exhaust of hot air.</p>
             </div>
         </div>
+        <!--Components-->
+        <div class="builder-tool center-align">
+            <p class="title flow-text center-align">PC Builder tool</p>
+            <p class="text flow-text center-align" id="builder">The PC Builder tool allows you to build your own PC with
+                a variety of
+                parts. After you have finished picking out all of the components, the tools rates your PC build and
+                estimates its' performance in multiple categories. Not for you? No need to worry! With our Auto Builder
+                tool, you will have a custom build made just for you. Simply select your budget and use case and it
+                should be assembled for you.</p>
+            <div class="row center-align">
+                <div class="component col s6 m4 l2 center-align modal-trigger" id="c-cpu" href="#addCpu">
+                    <p class="comp-text center-align flow-text">CPU</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-cooler1">
+                    <p class="comp-text center-align flow-text">CPU-cooler</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-mb">
+                    <p class="comp-text center-align flow-text">Motherboard</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-ram">
+                    <p class="comp-text center-align flow-text">RAM</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-gpu">
+                    <p class="comp-text center-align flow-text">GPU</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-storage">
+                    <p class="comp-text center-align flow-text">Storage</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-psu">
+                    <p class="comp-text center-align flow-text">PSU</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-case">
+                    <p class="comp-text center-align flow-text">Case</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+                <div class="component col s6 m4 l2 center-align" id="c-cooler2">
+                    <p class="comp-text center-align flow-text">Additional Cooling</p>
+                    <i class="material-icons comp-icon medium">add_circle</i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Part modals-->
+    <div>
+        <div id="addCpu" class="modal">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col s12 m8 l10">
+                        <p class="title flow-text">Izaberi procesor</p>
+                    </div>
+                    <div class="col s12 m4 l2 input-field">
+                        <input type="text" placeholder="Pretrazi po imenu" id="cpuSearch">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!--Scripts-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="main.js"></script>
+</body>
 
 </html>

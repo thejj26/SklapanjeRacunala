@@ -34,8 +34,8 @@ p {
     border-radius: 7px;
 }
 
-.buildGuide {
-    margin-top: 10vh;
+.buildGuide .container {
+    margin-top: 20vh;
 }
 
 .intro .text {
@@ -91,4 +91,71 @@ p {
     opacity: 0;
     transition: .5s ease-in-out;
     margin-top: 20vh;
+}
+
+.builder-tool {
+    margin-top: 10vh;
+}
+
+.component {
+    border-color: #543cc0;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    transition: .3s ease-in-out;
+}
+
+.comp-text {
+    color: #543cc0;
+    font-size: 30px;
+    transition: .3s ease-in-out;
+}
+
+.comp-icon {
+    color: #543cc0;
+    transition: .3s ease-in-out;
+}
+
+.component:hover .comp-icon,
+.component:hover .comp-text,
+.component:hover {
+    color: #271675;
+    transition: .3s ease-in-out;
+    border-color: #271675;
+}
+
+.pc-part {
+    margin-left: 2vw;
+    background-color: white;
+    transition: .3s ease-in-out;
+}
+
+.comp-modal-text {
+    color: #646464;
+    font-size: 20px;
+}
+
+.modal {
+    width: 95% !important;
+}
+
+.pc-part:hover {
+    background-color: #d6d3d3;
+    transition: .3s ease-in-out;
+}
+
+.row {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+hr {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #543cc0 !important;
+    box-shadow: 0 1px 0 0 #000;
+    color: #646464 !important;
 }
