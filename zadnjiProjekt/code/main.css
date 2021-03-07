@@ -159,3 +159,14 @@ hr {
     box-shadow: 0 1px 0 0 #000;
     color: #646464 !important;
 }
+
+.pc-part img {
+    width: 100% !important;
+    height: auto;
+    margin-top: 5vh;
+}
+
+body {
+    background-color: #FCFCFC;
+    overflow: auto !important;
+}
