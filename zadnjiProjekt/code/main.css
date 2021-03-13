@@ -193,16 +193,20 @@ body {
     object-fit: contain;
 }
 
-.pc-price{
+.pc-price {
     color: #646464;
-    font-size:64px;
+    font-size: 64px;
 }
 
-.price{
-    margin-top:2vh;
+.price {
+    margin-top: 2vh;
 }
 
-.price-list{
-    margin-top:5vh;
+.price-list {
+    margin-top: 5vh;
     margin-bottom: 5vh;
+}
+
+.modal .btn {
+    margin-top: 5vh;
 }

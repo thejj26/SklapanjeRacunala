@@ -334,6 +334,10 @@
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="cpuSearch">
                     </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetCpu()">IZBRIŠI PROCESOR</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -345,6 +349,10 @@
                     </div>
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="coolerSearch">
+                    </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetCooler()">IZBRIŠI HLADNJAK ZA PROCESOR</a>
                     </div>
                 </div>
             </div>
@@ -358,6 +366,10 @@
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="mbSearch">
                     </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetMb()">IZBRIŠI MATIČNU PLOČU</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -369,6 +381,10 @@
                     </div>
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="ramSearch">
+                    </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetRam()">IZBRIŠI RADNU MEMORIJU</a>
                     </div>
                 </div>
             </div>
@@ -382,6 +398,10 @@
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="gpuSearch">
                     </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetGpu()">IZBRIŠI GRAFIČKU KARTICU</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -393,6 +413,10 @@
                     </div>
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="storageSearch">
+                    </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetStorage()">IZBRIŠI POHRANU PODATAKA</a>
                     </div>
                 </div>
             </div>
@@ -406,6 +430,10 @@
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="psuSearch">
                     </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetPsu()">IZBRIŠI NAPAJANJE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -417,6 +445,10 @@
                     </div>
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="caseSearch">
+                    </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetCase()">IZBRIŠI KUĆIŠTE</a>
                     </div>
                 </div>
             </div>
@@ -430,6 +462,10 @@
                     <div class="col s12 m4 l2 input-field">
                         <input type="text" placeholder="Pretraži po imenu" id="fanSearch">
                     </div>
+                    <div class="col s12 m12 l12 center-align">
+                        <a class="btn deep-purple darken-4 waves-effect flow-text modal-close"
+                            onclick="ResetFans()">IZBRIŠI DODATNO HLAĐENJE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -439,34 +475,34 @@
     <div class="row center-align price-list">
         <hr>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="cpuPrice">Cijena procesora: </p>
+            <p class="text flow-text" id="cpuPrice">Cijena procesora:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="coolerPrice">Cijena hladnjaka za procesor: </p>
+            <p class="text flow-text" id="coolerPrice">Cijena hladnjaka za procesor:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="mbPrice">Cijena matične ploče: </p>
+            <p class="text flow-text" id="mbPrice">Cijena matične ploče:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="ramPrice">Cijena radne memorije: </p>
+            <p class="text flow-text" id="ramPrice">Cijena radne memorije:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="gpuPrice">Cijena grafičke kartice: </p>
+            <p class="text flow-text" id="gpuPrice">Cijena grafičke kartice:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="storagePrice">Cijena pohrane podataka: </p>
+            <p class="text flow-text" id="storagePrice">Cijena pohrane podataka:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="psuPrice">Cijena napajanja: </p>
+            <p class="text flow-text" id="psuPrice">Cijena napajanja:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 price">
-            <p class="text flow-text" id="casePrice">Cijena kućišta: </p>
+            <p class="text flow-text" id="casePrice">Cijena kućišta:<br>0kn </p>
         </div>
         <div class="col s10 m6 l4 offset-s1 offset-m3 price">
-            <p class="text flow-text" id="fanPrice">Cijena dodatnog hlađenja: </p>
+            <p class="text flow-text" id="fanPrice">Cijena dodatnog hlađenja:<br>0kn </p>
         </div>
         <div class="col s12 m12 l12">
-            <p class="flow-text pc-price" id="pcPrice">Ukupna cijena: </p>
+            <p class="flow-text pc-price" id="pcPrice">Ukupna cijena:<br>0kn </p>
         </div>
     </div>
 

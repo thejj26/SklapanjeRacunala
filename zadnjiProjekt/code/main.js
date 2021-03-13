@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
     window.scrollTo({
         behavior: "smooth",
         top: 1
-    });
+    })
 })
 
 //Scrollanje do PC buildera na pritisak botuna
@@ -162,10 +162,11 @@ function Case(brand, name, factor, maxGpu, maxCpuCooler, motherboardSupport, sid
     this.price = price
 }
 
-function StockCooler(brand, name, image) {
+function StockCooler(brand, name, image, price) {
     this.brand = brand
     this.name = name
     this.image = image
+    this.price = price
 }
 
 function AirCooler(brand, name, socket, fans, size, image, price) {
@@ -220,17 +221,21 @@ let CPUList = [
     new CPU("AMD", "Ryzen 7", "3800X", 8, 16, "AM4", 7, 105, 3.9, 4.5, "Ne", 10099, "Da", "https://i.imgur.com/v537x3P.png", "Wraith Prism RGB", 2600),
     new CPU("AMD", "Ryzen 9", "3900X", 12, 24, "AM4", 7, 105, 3.8, 4.6, "Ne", 11291, "Da", "https://i.imgur.com/CoVVmP0.png", "Wraith Prism RGB", 3600),
     new CPU("AMD", "Ryzen 9", "3950X", 16, 32, "AM4", 7, 105, 3.5, 4.7, "Ne", 13944, "Da", "https://i.imgur.com/rvf1F9V.png", "Ne", 5500),
-    new CPU("AMD", "Ryzen Threadripper", "1900x", 8, 16, "AM4", 14, 180, 3.8, 4.0, "Da", 8332, "Da", "https://www.consolekillerpc.co.uk/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/1/9/1900x.png", "Ne", 1150),
-    new CPU("AMD", "Ryzen Threadripper", "1920x", 12, 24, "AM4", 14, 180, 3.5, 4.0, "Da", 8978, "Da", "https://i.imgur.com/dNMrsaM.png", "Ne", 1400),
-    new CPU("Intel", "Core I3", "9100F", 4, 4, "LGA1151", 14, 65, 3.6, 4.2, "Ne", 4142, "Da", "https://i.imgur.com/6plqcni.png", "Intel PCG 2015C", 630),
-    new CPU("Intel", "Core I3", "9300", 4, 4, "LGA1151", 14, 62, 3.7, 4.3, "Intel® UHD Graphics 630", 4666, "Da", "https://i.imgur.com/6plqcni.png", "Intel PCG 2015C", 950)
+    new CPU("Intel", "Core I3", "9100F", 4, 4, "LGA1151", 14, 65, 3.6, 4.2, "Ne", 4142, "Ne", "https://i.imgur.com/6plqcni.png", "PCG 2015C", 630),
+    new CPU("Intel", "Core I3", "9300", 4, 4, "LGA1151", 14, 62, 3.7, 4.3, "Intel® UHD Graphics 630", 4666, "Ne", "https://i.imgur.com/6plqcni.png", "PCG 2015C", 950),
+    new CPU("Intel", "Core I5", "9400F", 6, 6, "LGA1151", 14, 65, 2.9, 4.1, "Ne", 6174, "Ne", "https://i.imgur.com/nITW0iY.png", "PCG 2015C", 1000),
+    new CPU("Intel", "Core I5", "9500F", 6, 6, "LGA1151", 14, 65, 3.0, 4.4, "Ne", 6066, "Ne", "https://i.imgur.com/nITW0iY.png", "PCG 2015C", 1280),
+    new CPU("Intel", "Core I5", "9600KF", 6, 6, "LGA1151", 14, 95, 3.7, 4.6, "Ne", 8336, "Da", "https://i.imgur.com/W2Q7KmA.png", "Ne", 1300),
+    new CPU("Intel", "Core I7", "9700", 8, 8, "LGA1151", 14, 65, 3.0, 4.7, "Intel® UHD Graphics 630", 8563, "Ne", "https://i.imgur.com/wEC905z.png", "PCG 2015C", 1800),
+    new CPU("Intel", "Core I9", "9900K", 8, 16, "LGA1151", 14, 95, 3.6, 5.0, "Ne", 12943, "Da", "https://i.imgur.com/3wreTO7.png", "Ne", 2850),
 ]
 
+
 let coolerList = [
-    new StockCooler("AMD", "Wraith Stealth", "https://i.imgur.com/IAZGt46.png"),
-    new StockCooler("AMD", "Wraith Spire", "https://i.imgur.com/ZXq2TPA.png"),
-    new StockCooler("AMD", "Wraith Prism RGB", "https://i.imgur.com/Hi2n8SZ.png"),
-    new StockCooler("Intel", "PCG 2015C", "https://matrixwarehouse.co.za/wp-content/uploads/2019/06/BX80684G5400-01.png"),
+    new StockCooler("AMD", "Wraith Stealth", "https://i.imgur.com/IAZGt46.png", 0),
+    new StockCooler("AMD", "Wraith Spire", "https://i.imgur.com/ZXq2TPA.png", 0),
+    new StockCooler("AMD", "Wraith Prism RGB", "https://i.imgur.com/Hi2n8SZ.png", 0),
+    new StockCooler("Intel", "PCG 2015C", "https://matrixwarehouse.co.za/wp-content/uploads/2019/06/BX80684G5400-01.png", 0),
     new AirCooler("Zalman", "CNPS10X Optima II", "LGA1151/AM4", 1, 158, "https://i.imgur.com/DvN42cz.png", 270),
     new AirCooler("CoolerMaster", "Hyper 212 RGB", "LGA1151/AM4", 1, 160, "https://i.imgur.com/9Ff32E4.png", 365),
     new AirCooler("Arctic", "Freezer 34 eSports DUO", "LGA1151/AM4", 2, 157, "https://i.imgur.com/0qVIUG6.png", 350),
@@ -244,8 +249,8 @@ let coolerList = [
 //Dodavanje komponenata u modal
 
 for (let i = 0; i < CPUList.length; i++) {
-    addCpu.innerHTML +=
-        `<div class="row pc-part modal-close" id="cpu${i+1}" onclick="CpuAdded(this.id)">
+    addCpu.innerHTML += `
+        <div class="row pc-part modal-close" id="cpu${i+1}" onclick="CpuAdded(this.id)">
             <div class="col s12 m8 l2 offset-m2 offset-l5">
                 <img src="${CPUList[i].image}" class="responsive-img">
             </div>
@@ -280,10 +285,11 @@ for (let i = 0; i < CPUList.length; i++) {
                 <p class="comp-modal-text flow-text">Cijena:<br>${CPUList[i].price}kn</p>
                 </div>
         </div>`
+
 }
 for (let i = 4; i < coolerList.length; i++) {
     addCooler.innerHTML +=
-        `<div class="row pc-part modal-close" id="cooler${i+1}" onclick="CoolerAdded(this.id)">
+        `<div class="row pc-part modal-close" id="cooler${i}" onclick="CoolerAdded(this.id)">
             <div class="col s12 m8 l2 offset-m2 offset-l5">
                 <img src="${coolerList[i].image}" class="responsive-img">
             </div>
@@ -350,53 +356,149 @@ fanSearch.addEventListener("input", () => {
 
 })
 
-//Dodavanje komponente
+//Dodavanje komponenata
 
 function CpuAdded(i) {
     i = String(i).split("u")[1]
+    finalCpu = CPUList[i - 1]
     cCpu.innerHTML = `
         <div class="row center-align">    
-            <p class="comp-text center-align flow-text">${CPUList[i-1].brand+" "+CPUList[i-1].series+" "+CPUList[i-1].name}</p>
-            <p class="comp-modal-text flow-text">${CPUList[i-1].price}kn<p>
+            <p class="comp-text center-align flow-text">${finalCpu.brand+" "+finalCpu.series+" "+finalCpu.name}</p>
+            <p class="comp-modal-text flow-text">${finalCpu.price}kn<p>
             <div class="col s6 m4 l6 offset-s3 offset-m3 offset-l3">    
-                <img src="${CPUList[i-1].image}" class="responsive-img selected-img">
+                <img src="${finalCpu.image}" class="responsive-img selected-img">
             </div>
         </div>
         `
-    priceOfCpu = CPUList[i - 1].price
+    if (finalCooler == null || finalCooler.price == 0) {
+        if (finalCpu.cooler.length > 2) {
+            for (let i = 0; i < 4; i++) {
+                if (coolerList[i].name == finalCpu.cooler) {
+                    CoolerAdded("cooler" + i)
+                }
+            }
+        } else {
+            ResetCooler()
+        }
+    }
+    priceOfCpu = finalCpu.price
     Price()
-    cpuPrice.innerHTML = "Cijena procesora:<br>" + priceOfCpu + "kn"
 }
 
 function CoolerAdded(i) {
     i = String(i).split("r")[1]
+    finalCooler = coolerList[i]
     cCooler.innerHTML = `
     <div class="row">    
-        <p class="comp-text center-align flow-text">${coolerList[i-1].brand+" "+coolerList[i-1].name}</p>
-        <p class="comp-modal-text flow-text">${coolerList[i-1].price}kn</p>
+        <p class="comp-text center-align flow-text">${finalCooler.brand+" "+finalCooler.name}</p>
+        <p class="comp-modal-text flow-text">${finalCooler.price}kn</p>
         <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
-            <img src="${coolerList[i-1].image}" class="selected-img responsize-img">
+            <img src="${finalCooler.image}" class="selected-img responsize-img">
         </div>
     </div>
     `
-    priceOfCooler = coolerList[i - 1].price
+    priceOfCooler = finalCooler.price
     Price()
-    coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
+}
+
+//Reset funkcije
+
+function ResetCpu() {
+    cCpu.innerHTML = `
+    <p class="comp-text center-align flow-text">PROCESOR</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    if (finalCooler.price == 0) {
+        ResetCooler()
+    }
+    priceOfCpu = 0
+    Price()
+}
+
+function ResetCooler() {
+    cCooler.innerHTML = `
+    <p class="comp-text center-align flow-text">HLADNJAK ZA PROCESOR</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfCooler = 0
+    Price()
+}
+
+function ResetMb() {
+    createImageBitmap.innerHTML = ` <p class="comp-text center-align flow-text">MATIČNA PLOČA</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfMb = 0
+    Price()
+}
+
+function ResetRam() {
+    cRam.innerHTML = `<p class="comp-text center-align flow-text">RADNA MEMORIJA</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfRam = 0
+    Price()
+}
+
+function ResetGpu() {
+    cGpu.innerHTML = `<p class="comp-text center-align flow-text">GRAFIČKA KARTICA</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfGpu = 0
+    Price()
+}
+
+function ResetStorage() {
+    cStorage.innerHTML = `<p class="comp-text center-align flow-text">POHRANA PODATAKA</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfStorage = 0
+    finalStorage = null
+    Price()
+}
+
+function ResetPsu() {
+    cPsu.innerHTML = `<p class="comp-text center-align flow-text">NAPAJANJE</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfPsu = 0
+    Price()
+}
+
+function ResetCase() {
+    cCase.innerHTML = `<p class="comp-text center-align flow-text">KUĆIŠTE</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    priceOfCase = 0
+    Price()
+}
+
+function ResetFans() {
+    cFans.innerHTML = `<p class="comp-text center-align flow-text">DODATNO HLAĐENJE</p>
+    <i class="material-icons comp-icon medium">add_circle</i>`
+    PriceOfFans = 0
+    Price()
 }
 
 //Cijena
-let priceOfCpu
-let priceOfCooler
-let priceOfMb
-let priceOfRam
-let priceOfGpu
-let priceOfStorage
-let priceOfPsu
-let priceOfCase
-let PriceOfFans
-let totalPrice
+let priceOfCpu = 0
+let priceOfCooler = 0
+let priceOfMb = 0
+let priceOfRam = 0
+let priceOfGpu = 0
+let priceOfStorage = 0
+let priceOfPsu = 0
+let priceOfCase = 0
+let PriceOfFans = 0
+let totalPrice = 0
 
 function Price() {
     totalPrice = priceOfCpu + priceOfCooler + priceOfMb + priceOfRam + priceOfGpu + priceOfStorage + priceOfPsu + priceOfCase + PriceOfFans
-    pcPrice.innerHTML="Ukupna cijena:<br>"+totalPrice+"kn"
+    cpuPrice.innerHTML = "Cijena procesora:<br>" + priceOfCpu + "kn"
+    coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
+    pcPrice.innerHTML = totalPrice + "kn"
 }
+
+//Izabrane komponente
+
+let finalCpu = null
+let finalCooler = null
+let finalMb = null
+let finalRam = null
+let finalGpu = null
+let finalStorage = null
+let finalPsu = null
+let finalCase = null
+let finalFans = null
