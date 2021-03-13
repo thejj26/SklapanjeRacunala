@@ -1,4 +1,4 @@
-/*Materialize carousel*/
+//Materialize carousel
 M.AutoInit()
 $(document).ready(function () {
     $('.carousel').carousel({
@@ -14,7 +14,7 @@ next.addEventListener("click", () => {
     $('.carousel').carousel('next')
 })
 
-/*Animacije na ucitavanje stranice*/
+//Animacije na ucitavanje stranice
 
 window.addEventListener("load", () => {
     document.getElementById("floatIn").style.opacity = "1"
@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
     });
 })
 
-/*Scrollanje do PC buildera na pritisak botuna*/
+//Scrollanje do PC buildera na pritisak botuna
 
 document.getElementById("pcBuilderBtn").addEventListener("click", () => {
     window.document.getElementById("builder").scrollIntoView({
@@ -36,7 +36,7 @@ document.getElementById("pcBuilderBtn").addEventListener("click", () => {
     })
 })
 
-/*Prevencija selektiranja kod brzog klikavanja*/
+//Prevencija selektiranja kod brzog klikavanja
 
 prev.addEventListener('mousedown', function (e) {
     e.preventDefault()
@@ -45,12 +45,7 @@ next.addEventListener('mousedown', function (e) {
     e.preventDefault()
 }, false)
 
-/*Deklariranje varijabli*/
-
-let addCpu = document.getElementById("addCpu")
-let cpuSearch = document.getElementById("cpuSearch")
-
-/* Konstruktorske funkcije*/
+//Konstruktorske funkcije
 
 function CPU(brand, series, name, cores, threads, socket, tSize, tdp, baseGhz, boostGhz, graphics, score, oc, image, cooler, price) {
     this.brand = brand
@@ -167,34 +162,30 @@ function Case(brand, name, factor, maxGpu, maxCpuCooler, motherboardSupport, sid
     this.price = price
 }
 
-function StockCooler(brand, name, maxTdp, height, socket, image) {
+function StockCooler(brand, name, image) {
     this.brand = brand
     this.name = name
-    this.maxTdp = maxTdp
-    this.height = height
-    this.socket = socket
     this.image = image
 }
 
-function AirCooler(brand, name, socket, maxTdp, fans, height, image, price) {
-    this.brane = brand
+function AirCooler(brand, name, socket, fans, size, image, price) {
+    this.brand = brand
     this.name = name
     this.socket = socket
-    this.maxTdp = maxTdp
     this.fans = fans
-    this.height = height
+    this.size = size
     this.image = image
     this.price = price
 }
 
-function AIOCooler(brand, name, size, height, fans, image, price) {
+function AIOCooler(brand, name, size, socket, fans, image, price) {
     this.brand = brand
     this.name = name
     this.size = size
-    this.height = height
     this.fans = fans
     this.image = image
     this.price = price
+    this.socket = socket
 }
 
 function CaseFan(brand, name, size, number, image, price) {
@@ -206,71 +197,206 @@ function CaseFan(brand, name, size, number, image, price) {
     this.price = price
 }
 
-let CPUList = [new CPU("AMD", "Ryzen 3", "1200", 4, 4, "AM4", 14, 65, 3.1, 3.4, "Ne", 3749, "Da", "https://o.remove.bg/downloads/f7b65c5c-3b44-4341-b9ff-0ad0771577df/amd-ryzen-3-1200-prodajem-slika-128116989-removebg-preview.png", "Wraith Stealth", 460), new CPU("AMD", "Ryzen 3", "1300X", 4, 4, "AM4", 14, 65, 3.5, 3.7, "Ne", 3765, "Da", "https://o.remove.bg/downloads/16feee8a-3ade-4efa-8cdb-084d18c4c4ad/amd-ryzen-3-1200-prodajem-slika-128116989-removebg-preview.png", "Wraith Stealth", 500), new CPU("AMD", "Ryzen 3", "2200G", 4, 8, "AM4", 14, 65, 3.5, 3.7, "Radeon Vega 8", 3693, "Da", "https://o.remove.bg/downloads/375b3787-84ef-4d1a-a3eb-0e1976b267c4/amd-ryzen-3-2200g-socket-am4-procesor_25465dc0-removebg-preview.png", "Wraith Stealth", 600), new CPU("AMD", "Ryzen 3", "3200G", 4, 4, "AM4", 12, 65, 3.6, 4.0, "Radeon Vega 8", 3812, "Da", "https://o.remove.bg/downloads/0a157253-3340-43f5-ac8e-d8e9ddba4b00/amd-ryzen-3-3200g-socket-am4-procesor_99f1426-removebg-preview.png", "Wraith Stealth", 800), new CPU("AMD", "Ryzen 3", "3100", 4, 8, "AM4", 7, 65, 3.6, 3.9, "Ne", 5515, "Da", "https://o.remove.bg/downloads/f9b779a2-7527-4b9d-8f61-263c7ccde3b4/624041_117267_04_package_zoom-removebg-preview.png", "Wraith Stealth", 1170), new CPU("AMD", "Ryzen 3", "3300X", 4, 8, "AM4", 7, 65, 3.8, 4.3, "Ne", 6676, "Da", "https://o.remove.bg/downloads/07cb1359-414f-4fd1-9224-590a8aea5f97/image-removebg-preview.png", "Wraith Stealth", 1450), new CPU("AMD", "Ryzen 5", "1400", 4, 8, "AM4", 14, 65, 3.2, 3.4, "Ne", 4022, "Da", "https://o.remove.bg/downloads/7b23a93a-5fba-4c1b-ad76-ea51c464ef94/image-removebg-preview.png", "Wraith Stealth", 1000), new CPU("AMD", "Ryzen 5", "1500X", 4, 8, "AM4", 14, 65, 3.5, 3.7, "Ne", 4182, "Da", "https://o.remove.bg/downloads/7b23a93a-5fba-4c1b-ad76-ea51c464ef94/image-removebg-preview.png", "Wraith Spire", 1150), new CPU("AMD", "Ryzen 5", "1600AF", 6, 12, "AM4", 12, 65, 3.2, 3.6, "Ne", 5940, "Da", "https://o.remove.bg/downloads/7b23a93a-5fba-4c1b-ad76-ea51c464ef94/image-removebg-preview.png", "Wraith Spire", 940), new CPU("AMD", "Ryzen 5", "2400G", 4, 8, "AM4", 12, 65, 3.6, 3.9, "Radeon Vega 11", 3988, "Da", "https://o.remove.bg/downloads/24c6cd0d-4e72-4a34-9879-288fce57ed62/image-removebg-preview.png", "Wraith Spire", 1280), new CPU("AMD", "Ryzen 5", "3400G", 4, 8, "AM4", 7, 65, 3.7, 4.2, "Radeon Vega 11", 3882, "Da", "https://o.remove.bg/downloads/24c6cd0d-4e72-4a34-9879-288fce57ed62/image-removebg-preview.png", "Wraith Spire", 1700), new CPU("AMD", "Ryzen 5", "3500", 6, 6, "AM4", 7, 65, 3.6, 4.1, "Ne", 6484, "Da", "https://o.remove.bg/downloads/04e93cd3-c52f-4767-8956-eb03237b02b3/image-removebg-preview.png", "Wraith Spire", 1800), new CPU("AMD", "Ryzen 5", "3600", 6, 12, "AM4", 7, 65, 3.6, 4.2, "Ne", 8556, "Da", "https://o.remove.bg/downloads/04e93cd3-c52f-4767-8956-eb03237b02b3/image-removebg-preview.png", "Wraith Stealth", 1530), new CPU("AMD", "Ryzen 7", "1700X", 8, 16, "AM4", 14, 95, 3.4, 3.8, "Ne", 7435, "Da", "https://o.remove.bg/downloads/53281a2f-6fa8-4403-abc2-7f5cb143d970/image-removebg-preview.png", "Ne", 1500), new CPU("AMD", "Ryzen 7", "1800X", 8, 16, "AM4", 14, 95, 3.6, 4.0, "Ne", 7893, "Da", "https://o.remove.bg/downloads/73c7089f-ba43-4ff9-9d43-9cc25553f260/image-removebg-preview.png", "Ne", 1700), new CPU("AMD", "Ryzen 7", "2700X", 8, 16, "AM4", 12, 105, 3.7, 4.3, "Ne", 8604, "Da", "https://o.remove.bg/downloads/53281a2f-6fa8-4403-abc2-7f5cb143d970/image-removebg-preview.png", "Wraith Prism RGB", 1650), new CPU("AMD", "Ryzen 7", "3700X", 8, 16, "AM4", 7, 65, 3.6, 4.4, "Ne", 9893, "Da", "https://o.remove.bg/downloads/0347ec6f-f8ea-4b85-a01d-ed9a1932eca3/608318_952036_01_front_zoom-removebg-preview.png", "Wraith Prism RGB", 2400), new CPU("AMD", "Ryzen 7", "3800X", 8, 16, "AM4", 7, 105, 3.9, 4.5, "Ne", 10099, "Da", "https://o.remove.bg/downloads/0347ec6f-f8ea-4b85-a01d-ed9a1932eca3/608318_952036_01_front_zoom-removebg-preview.png", "Wraith Prism RGB", 2600), new CPU("AMD", "Ryzen 9", "3900X", 12, 24, "AM4", 7, 105, 3.8, 4.6, "Ne", 11291, "Da", "https://o.remove.bg/downloads/51178b6e-46dc-4983-8668-0f912d7f4244/s-l640-removebg-preview.png", "Wraith Prism RGB", 3600), new CPU("AMD", "Ryzen 9", "3950X", 16, 32, "AM4", 7, 105, 3.5, 4.7, "Ne", 13944, "Da", "https://o.remove.bg/downloads/00f6286c-6f25-43aa-9381-a542a9999314/unnamed-removebg-preview.png", "Ne", 5500), new CPU("AMD", "Ryzen Threadripper", "1900x", 8, 16, "AM4", 14, 180, 3.8, 4.0, "Ne", 8332, "Da", "https://www.consolekillerpc.co.uk/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/1/9/1900x.png", "Ne", 1150), new CPU("AMD", "Ryzen Threadripper", "1920x", 12, 24, "AM4", 14, 180, 3.5, 4.0, "Ne", 8978, "Da", "https://o.remove.bg/downloads/d467f5a3-a1ad-412a-a4bd-999ef484fb23/im_23065-removebg-preview.png", "Ne", 1400), new CPU("Intel", "Core I3", "9100F", 4, 4, "LGA1151", 14, 65, 3.6, 4.2, "Ne", 4142, "Ne", "https://o.remove.bg/downloads/23e35918-9c5a-46f8-9ae0-f5dca3e8a9f9/procesador_intel_core_i3-9100f_3_6_ghz_box_01_l-removebg-preview.png", "Intel PCG 2015C", 630)]
+//Liste komponenti
 
+let CPUList = [
+    new CPU("AMD", "Ryzen 3", "1200", 4, 4, "AM4", 14, 65, 3.1, 3.4, "Ne", 3749, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-right-facing-1260x709_1.png", "Wraith Stealth", 460),
+    new CPU("AMD", "Ryzen 3", "1300X", 4, 4, "AM4", 14, 65, 3.5, 3.7, "Ne", 3765, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-left-facing-1260x709_2.png", "Wraith Stealth", 500),
+    new CPU("AMD", "Ryzen 3", "2200G", 4, 8, "AM4", 14, 65, 3.5, 3.7, "Radeon Vega 8", 3693, "Da", "https://www.amd.com/system/files/82446-raven-am4-ryzen-3-pib-left-facing-1260x709.png", "Wraith Stealth", 600),
+    new CPU("AMD", "Ryzen 3", "3200G", 4, 4, "AM4", 12, 65, 3.6, 4.0, "Radeon Vega 8", 3812, "Da", "https://www.amd.com/system/files/2019-06/238593-ryzen-3-vega-pib-left-facing-1260x709_0.png", "Wraith Stealth", 800),
+    new CPU("AMD", "Ryzen 3", "3100", 4, 8, "AM4", 7, 65, 3.6, 3.9, "Ne", 5515, "Da", "https://i.imgur.com/Q82AAHM.png", "Wraith Stealth", 1170),
+    new CPU("AMD", "Ryzen 3", "3300X", 4, 8, "AM4", 7, 65, 3.8, 4.3, "Ne", 6676, "Da", "https://www.amd.com/system/files/2020-04/450000-ryzen3-3rd-gen-pib-1260x709_0.png", "Wraith Stealth", 1450),
+    new CPU("AMD", "Ryzen 5", "1400", 4, 8, "AM4", 14, 65, 3.2, 3.4, "Ne", 4022, "Da", "https://www.nabava.net/slike/products/41/53/4185341/amd-ryzen-5-1600_fb570d24.png", "Wraith Stealth", 1000),
+    new CPU("AMD", "Ryzen 5", "1500X", 4, 8, "AM4", 14, 65, 3.5, 3.7, "Ne", 4182, "Da", "https://www.nabava.net/slike/products/41/53/4185341/amd-ryzen-5-1600_fb570d24.png", "Wraith Spire", 1150),
+    new CPU("AMD", "Ryzen 5", "1600AF", 6, 12, "AM4", 12, 65, 3.2, 3.6, "Ne", 5940, "Da", "https://www.nabava.net/slike/products/41/53/4185341/amd-ryzen-5-1600_fb570d24.png", "Wraith Spire", 940),
+    new CPU("AMD", "Ryzen 5", "2400G", 4, 8, "AM4", 12, 65, 3.6, 3.9, "Radeon Vega 11", 3988, "Da", "https://i.imgur.com/bTLZWAY.png", "Wraith Spire", 1280),
+    new CPU("AMD", "Ryzen 5", "3400G", 4, 8, "AM4", 7, 65, 3.7, 4.2, "Radeon Vega 11", 3882, "Da", "https://www.amd.com/system/files/2019-07/238593-ryzen-5G-pib-right-facing-1260x709.png", "Wraith Spire", 1700),
+    new CPU("AMD", "Ryzen 5", "3500", 6, 6, "AM4", 7, 65, 3.6, 4.1, "Ne", 6484, "Da", "https://i.imgur.com/VUgKNMA.png", "Wraith Spire", 1800),
+    new CPU("AMD", "Ryzen 5", "3600", 6, 12, "AM4", 7, 65, 3.6, 4.2, "Ne", 8556, "Da", "https://i.imgur.com/zebYHd3.png", "Wraith Stealth", 1530),
+    new CPU("AMD", "Ryzen 7", "1700X", 8, 16, "AM4", 14, 95, 3.4, 3.8, "Ne", 7435, "Da", "https://i.imgur.com/HKPlWvx.png", "Ne", 1500),
+    new CPU("AMD", "Ryzen 7", "1800X", 8, 16, "AM4", 14, 95, 3.6, 4.0, "Ne", 7893, "Da", "https://i.imgur.com/zN8oTZJ.png", "Ne", 1700),
+    new CPU("AMD", "Ryzen 7", "2700X", 8, 16, "AM4", 12, 105, 3.7, 4.3, "Ne", 8604, "Da", "https://i.imgur.com/cVDGKbK.png", "Wraith Prism RGB", 1650),
+    new CPU("AMD", "Ryzen 7", "3700X", 8, 16, "AM4", 7, 65, 3.6, 4.4, "Ne", 9893, "Da", "https://i.imgur.com/v537x3P.png", "Wraith Prism RGB", 2400),
+    new CPU("AMD", "Ryzen 7", "3800X", 8, 16, "AM4", 7, 105, 3.9, 4.5, "Ne", 10099, "Da", "https://i.imgur.com/v537x3P.png", "Wraith Prism RGB", 2600),
+    new CPU("AMD", "Ryzen 9", "3900X", 12, 24, "AM4", 7, 105, 3.8, 4.6, "Ne", 11291, "Da", "https://i.imgur.com/CoVVmP0.png", "Wraith Prism RGB", 3600),
+    new CPU("AMD", "Ryzen 9", "3950X", 16, 32, "AM4", 7, 105, 3.5, 4.7, "Ne", 13944, "Da", "https://i.imgur.com/rvf1F9V.png", "Ne", 5500),
+    new CPU("AMD", "Ryzen Threadripper", "1900x", 8, 16, "AM4", 14, 180, 3.8, 4.0, "Da", 8332, "Da", "https://www.consolekillerpc.co.uk/media/catalog/product/cache/1/image/900x900/9df78eab33525d08d6e5fb8d27136e95/1/9/1900x.png", "Ne", 1150),
+    new CPU("AMD", "Ryzen Threadripper", "1920x", 12, 24, "AM4", 14, 180, 3.5, 4.0, "Da", 8978, "Da", "https://i.imgur.com/dNMrsaM.png", "Ne", 1400),
+    new CPU("Intel", "Core I3", "9100F", 4, 4, "LGA1151", 14, 65, 3.6, 4.2, "Ne", 4142, "Da", "https://i.imgur.com/6plqcni.png", "Intel PCG 2015C", 630),
+    new CPU("Intel", "Core I3", "9300", 4, 4, "LGA1151", 14, 62, 3.7, 4.3, "Intel® UHD Graphics 630", 4666, "Da", "https://i.imgur.com/6plqcni.png", "Intel PCG 2015C", 950)
+]
 
-/*Dodavanje komponenata u modal*/
+let coolerList = [
+    new StockCooler("AMD", "Wraith Stealth", "https://i.imgur.com/IAZGt46.png"),
+    new StockCooler("AMD", "Wraith Spire", "https://i.imgur.com/ZXq2TPA.png"),
+    new StockCooler("AMD", "Wraith Prism RGB", "https://i.imgur.com/Hi2n8SZ.png"),
+    new StockCooler("Intel", "PCG 2015C", "https://matrixwarehouse.co.za/wp-content/uploads/2019/06/BX80684G5400-01.png"),
+    new AirCooler("Zalman", "CNPS10X Optima II", "LGA1151/AM4", 1, 158, "https://i.imgur.com/DvN42cz.png", 270),
+    new AirCooler("CoolerMaster", "Hyper 212 RGB", "LGA1151/AM4", 1, 160, "https://i.imgur.com/9Ff32E4.png", 365),
+    new AirCooler("Arctic", "Freezer 34 eSports DUO", "LGA1151/AM4", 2, 157, "https://i.imgur.com/0qVIUG6.png", 350),
+    new AirCooler("Noctua", "NH-U12A", "LGA1151/AM4", 2, 158, "https://i.imgur.com/v7GOpdS.png", 800),
+    new AirCooler("Arctic", "Freezer 7X", "LGA1151/AM4", 1, 132, "https://i.imgur.com/KRMcBhn.png", 140),
+    new AIOCooler("CoolerMaster", "MasterLiquid 240 Lite", "LGA1151/AM4", 240, 2, "https://i.imgur.com/CmQWIU6.png", 420),
+    new AIOCooler("Arctic", "Liquid Freezer II", 240, "LGA1151/AM4", 2, "https://i.imgur.com/CaxUP9e.png", 660),
+    new AIOCooler("Corsair", "iCue H150i ELITE CAPPELIX", "LGA1151/AM4", 360, 3, "https://i.imgur.com/MWn6zS0.png", 1580),
+    new AIOCooler("Coolermaster", "MasterLiquid 120 Lite", "LGA1151/AM4", 120, 1, "https://www.nabava.net/slike/products/65/87/4568765/thumb290_cooler-master-vodeno-hladenje-masterliquid-lite-120-mlw-d12m-a20pw-r1_1a2b8fa0.png", 370)
+]
+//Dodavanje komponenata u modal
 
-for (var i = 0; i < CPUList.length; i++) {
-    addCpu.innerHTML += (
-        `<div class="row pc-part" id="cpu${i+1}">
-            <div class="col s2 m2 l2">
+for (let i = 0; i < CPUList.length; i++) {
+    addCpu.innerHTML +=
+        `<div class="row pc-part modal-close" id="cpu${i+1}" onclick="CpuAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
                 <img src="${CPUList[i].image}" class="responsive-img">
             </div>
             <hr>
-            <div class="col s10 m10 l10 row center-align">    
-                <p class="comp-modal-text flow-text id="cpuName${i+1}">${CPUList[i].brand+" "+CPUList[i].series+" "+CPUList[i].name}</p>
-                <div class="col s4 m2 l2">
+            <div class="col s12 m12 l12 row center-align">    
+                <p class="comp-modal-title flow-text" id="cpuName${i+1}">${CPUList[i].brand+" "+CPUList[i].series+" "+CPUList[i].name}</p>
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Socket:<br>${CPUList[i].socket}</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Velicina transistora:<br>${CPUList[i].tSize}nm</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Snaga:<br>${CPUList[i].tdp}W</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Brzina:<br>${CPUList[i].baseGhz}GHz-${CPUList[i].boostGhz}GHz</p>
                </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Intergrirana grafika:<br>${CPUList[i].graphics}</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Performansa:<br>${CPUList[i].score}</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Mogucnost OC:<br>${CPUList[i].oc}</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                     <p class="comp-modal-text flow-text">Dolazi s hladnjakom:<br>${CPUList[i].cooler}</p>
                 </div>
-                <div class="col s4 m2 l2">
+                <div class="col s6 m3 l2">
                 <p class="comp-modal-text flow-text">Cijena:<br>${CPUList[i].price}kn</p>
                 </div>
-        </div>`)
-    document.getElementById("cpu" + (i + 1)).addEventListener("click", () => {
-        document.getElementById("c-cpu").innerHTML = `
-        <p class="comp-text center-align flow-text">${CPUList[i].brand+" "+CPUList[i].series+" "+CPUList[i].name}</p>
-        <img src="${CPUList[i].image}" class="responsive-img">`
-    })
+        </div>`
+}
+for (let i = 4; i < coolerList.length; i++) {
+    addCooler.innerHTML +=
+        `<div class="row pc-part modal-close" id="cooler${i+1}" onclick="CoolerAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
+                <img src="${coolerList[i].image}" class="responsive-img">
+            </div>
+            <hr>
+            <div class="col s12 m12 l12 row center-align">
+                <p class="comp-modal-title flow-text" id="coolerName${i-3}">${coolerList[i].brand+" "+coolerList[i].name}</p>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Socket:<br>${coolerList[i].socket}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Broj ventilatora:<br>${coolerList[i].fans}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Veličina:<br>${coolerList[i].size}mm</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Cijena:<br>${coolerList[i].price}kn</p>
+                </div>
+        </div>`
 }
 
-/*Seacrh funkcije*/
+//Seacrh funkcija
 
-function Search() {
-    console.log("Radi")
-    for (let i = 1; i <= CPUList.length; i++) {
-        if (document.getElementById("cpuName" + i).innerHTML.includes(cpuSearch.value) === true) {
-            document.getElementById("cpuName" + i).parentElement.parentElement.style.display = "block"
-            return document.getElementById(" cpuName" + i).innerHTML + " :1"
-        } else if (cpuSearch.value = "") {
-            document.getElementById("cpuName" + i).parentElement.parentElement.style.display = "block"
-            return "Empty search value"
+function Search(searchBar, list, searchBy) {
+    console.clear()
+    console.log("Searching for: " + searchBar.value)
+    for (let i = 1; i <= list; i++) {
+        if (document.getElementById(searchBy + i).innerHTML.toUpperCase().includes(searchBar.value.toUpperCase()) === true) {
+            document.getElementById(searchBy + i).parentElement.parentElement.style.display = "block"
+            console.log(document.getElementById(searchBy + i).innerHTML)
+        } else if (searchBar.value == "") {
+            document.getElementById(searchBy + i).parentElement.parentElement.style.display = "block"
         } else {
-            document.getElementById("cpuName" + i).parentElement.parentElement.style.display = "none"
-            return document.getElementById("cpuName" + String(i)).innerHTML + " :0"
+            document.getElementById(searchBy + i).parentElement.parentElement.style.display = "none"
         }
     }
 }
+//Aktivacija search funkcija
+cpuSearch.addEventListener("input", () => {
+    Search(cpuSearch, CPUList.length, "cpuName")
+})
+document.getElementById("coolerSearch").addEventListener("input", () => {
+    Search(coolerSearch, coolerList.length - 4, "coolerName")
+})
+mbSearch.addEventListener("input", () => {
 
-cpuSearch.addEventListener("keyup", (Search))
+})
+ramSearch.addEventListener("input", () => {
+
+})
+gpuSearch.addEventListener("input", () => {
+
+})
+storageSearch.addEventListener("input", () => {
+
+})
+psuSearch.addEventListener("input", () => {
+
+})
+caseSearch.addEventListener("input", () => {
+
+})
+fanSearch.addEventListener("input", () => {
+
+})
+
+//Dodavanje komponente
+
+function CpuAdded(i) {
+    i = String(i).split("u")[1]
+    cCpu.innerHTML = `
+        <div class="row center-align">    
+            <p class="comp-text center-align flow-text">${CPUList[i-1].brand+" "+CPUList[i-1].series+" "+CPUList[i-1].name}</p>
+            <p class="comp-modal-text flow-text">${CPUList[i-1].price}kn<p>
+            <div class="col s6 m4 l6 offset-s3 offset-m3 offset-l3">    
+                <img src="${CPUList[i-1].image}" class="responsive-img selected-img">
+            </div>
+        </div>
+        `
+    priceOfCpu = CPUList[i - 1].price
+    Price()
+    cpuPrice.innerHTML = "Cijena procesora:<br>" + priceOfCpu + "kn"
+}
+
+function CoolerAdded(i) {
+    i = String(i).split("r")[1]
+    cCooler.innerHTML = `
+    <div class="row">    
+        <p class="comp-text center-align flow-text">${coolerList[i-1].brand+" "+coolerList[i-1].name}</p>
+        <p class="comp-modal-text flow-text">${coolerList[i-1].price}kn</p>
+        <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
+            <img src="${coolerList[i-1].image}" class="selected-img responsize-img">
+        </div>
+    </div>
+    `
+    priceOfCooler = coolerList[i - 1].price
+    Price()
+    coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
+}
+
+//Cijena
+let priceOfCpu
+let priceOfCooler
+let priceOfMb
+let priceOfRam
+let priceOfGpu
+let priceOfStorage
+let priceOfPsu
+let priceOfCase
+let PriceOfFans
+let totalPrice
+
+function Price() {
+    totalPrice = priceOfCpu + priceOfCooler + priceOfMb + priceOfRam + priceOfGpu + priceOfStorage + priceOfPsu + priceOfCase + PriceOfFans
+    pcPrice.innerHTML="Ukupna cijena:<br>"+totalPrice+"kn"
+}
