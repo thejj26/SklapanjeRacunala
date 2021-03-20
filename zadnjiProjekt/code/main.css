@@ -189,7 +189,7 @@ body {
 }
 
 .selected-img {
-    max-width: 85% !important;
+    max-width: 100% !important;
     object-fit: contain;
 }
 

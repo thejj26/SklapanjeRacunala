@@ -15,7 +15,6 @@ next.addEventListener("click", () => {
 })
 
 //Animacije na ucitavanje stranice
-
 window.addEventListener("load", () => {
     document.getElementById("floatIn").style.opacity = "1"
     document.getElementById("floatIn").style.marginTop = "7vh"
@@ -29,15 +28,12 @@ window.addEventListener("load", () => {
 })
 
 //Scrollanje do PC buildera na pritisak botuna
-
 document.getElementById("pcBuilderBtn").addEventListener("click", () => {
     window.document.getElementById("builder").scrollIntoView({
         behavior: "smooth"
     })
 })
-
 //Prevencija selektiranja kod brzog klikavanja
-
 prev.addEventListener('mousedown', function (e) {
     e.preventDefault()
 }, false)
@@ -45,8 +41,27 @@ next.addEventListener('mousedown', function (e) {
     e.preventDefault()
 }, false)
 
-//Konstruktorske funkcije
+//Brisanje searchbar vrijednosti na zatvaranje modala
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.modal')
+    var instances = M.Modal.init(elems, {
+        onCloseEnd: function () {
+            cpuSearch.value = ""
+            Search(cpuSearch, CPUList.length, "cpuName")
+            coolerSearch.value = ""
+            Search(coolerSearch, coolerList.length - 4, "coolerName")
+            mbSearch.value = ""
+            ramSearch.value = ""
+            gpuSearch.value = ""
+            storageSearch.value = ""
+            psuSearch.value = ""
+            caseSearch.value = ""
+            fanSearch.value = ""
+        }
+    })
+})
 
+//Konstruktorske funkcije
 function CPU(brand, series, name, cores, threads, socket, tSize, tdp, baseGhz, boostGhz, graphics, score, oc, image, cooler, price) {
     this.brand = brand
     this.series = series
@@ -199,7 +214,6 @@ function CaseFan(brand, name, size, number, image, price) {
 }
 
 //Liste komponenti
-
 let CPUList = [
     new CPU("AMD", "Ryzen 3", "1200", 4, 4, "AM4", 14, 65, 3.1, 3.4, "Ne", 3749, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-right-facing-1260x709_1.png", "Wraith Stealth", 460),
     new CPU("AMD", "Ryzen 3", "1300X", 4, 4, "AM4", 14, 65, 3.5, 3.7, "Ne", 3765, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-left-facing-1260x709_2.png", "Wraith Stealth", 500),
@@ -229,8 +243,6 @@ let CPUList = [
     new CPU("Intel", "Core I7", "9700", 8, 8, "LGA1151", 14, 65, 3.0, 4.7, "Intel® UHD Graphics 630", 8563, "Ne", "https://i.imgur.com/wEC905z.png", "PCG 2015C", 1800),
     new CPU("Intel", "Core I9", "9900K", 8, 16, "LGA1151", 14, 95, 3.6, 5.0, "Ne", 12943, "Da", "https://i.imgur.com/3wreTO7.png", "Ne", 2850),
 ]
-
-
 let coolerList = [
     new StockCooler("AMD", "Wraith Stealth", "https://i.imgur.com/IAZGt46.png", 0),
     new StockCooler("AMD", "Wraith Spire", "https://i.imgur.com/ZXq2TPA.png", 0),
@@ -246,8 +258,33 @@ let coolerList = [
     new AIOCooler("Corsair", "iCue H150i ELITE CAPPELIX", "LGA1151/AM4", 360, 3, "https://i.imgur.com/MWn6zS0.png", 1580),
     new AIOCooler("Coolermaster", "MasterLiquid 120 Lite", "LGA1151/AM4", 120, 1, "https://www.nabava.net/slike/products/65/87/4568765/thumb290_cooler-master-vodeno-hladenje-masterliquid-lite-120-mlw-d12m-a20pw-r1_1a2b8fa0.png", 370)
 ]
+let mbList = [
+    new Mothebroad("MSI", "A320M-A PRO", "AM4", "A320", "mATX", 2, 3200, "Ne", 0, 4, 1, 1, "https://asset.msi.com/resize/image/global/product/product_5_20190729160213_5d3ea805c460e.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png", 350),
+    new Mothebroad("Gigabyte", "A320M-H", "AM4", "A320", "mATX", 2, 3200, "Ne", 1, 4, 2, 1, "https://static.gigabyte.com/StaticFile/Image/Global/509446198742ff412d8c2d4dcd7df8e7/Product/20311/png/500", 400),
+    new Mothebroad("AsRock", "A320M-H Pro4-F", "AM4", "A320", "mATX", 4, 3200, "Ne", 2, 4, 1, 2, "https://i.imgur.com/fJoNehz.png", 530),
+    new Mothebroad("MSI", "B350M Pro-VD Plus", "AM4", "B350", "mATX", 2, 3200, "Ne", 0, 4, 2, 1, "https://asset.msi.com/resize/image/global/product/product_10_20170614143312_5940d8a8e0b2f.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png", 480),
+    new Mothebroad("AsRock", "AB350M Pro4-F", "AM4", "B350", "mATX", 4, 3200, "Ne", 2, 4, 1, 2, "https://i.imgur.com/fJoNehz.png", 530),
+    new Mothebroad("AsRock", "AB350 Gaming K4", "AM4", "B350", "ATX", 4, 3200, "Ne", 2, 6, 4, 2, "https://www.asrock.com/mb/photo/Fatal1ty%20AB350%20Gaming%20K4(L4).png", 630),
+    new Mothebroad("Gigabyte", "B450M H", "AM4", "B450", "mATX", 2, 3600, "Ne", 1, 4, 2, 1, "https://static.gigabyte.com/StaticFile/Image/Global/b13021ab933b933336876c73ab6ba644/Product/24294/png/500", 470),
+    new Mothebroad("Asus", "PRIME B450M-K II", "AM4", "B450", "mATX", 2, 4400, "Ne", 1, 4, 2, 1, "https://dlcdnwebimgs.asus.com/gain/ae050c7e-abbf-4794-bd1d-c26cd19aa183/w800", 530),
+    new Mothebroad("Gigabyte", "B450 Aorus Elite V2", "AM4", "B450", "ATX", 4, 3600, "Ne", 2, 6, 2, 2, "https://static.gigabyte.com/StaticFile/Image/Global/8bdb4bae8b1a28b6daaa5cbe29b91ed2/Product/25864/png/500", 700),
+    new Mothebroad("AsRock", "B550M-HDV", "AM4", "B550", "mATX", 2, 4600, "Ne", 1, 4, 1, 1, "https://www.asrock.com/mb/photo/B550M-HDV(L2).png", 700),
+    new Mothebroad("AsRock", "B550 Phantom Gaming 4", "AM4", "B550", "ATX", 4, 4533, "Ne", 2, 6, 2, 2, "https://www.asrock.com/mb/photo/B550%20Phantom%20Gaming%204(L4).png", 760),
+    new Mothebroad("Asus", "ROG STRIX B550-F Gaming", "AM4", "B550", "ATX", 4, 5100, "Ne", 2, 6, 3, 2, "https://rog.asus.com/websites/global/products/uri12btqafuvwte6/img/kv/pd.png", 1300),
+    new Mothebroad("AsRock", "X370M-HDV", "AM4", "X370", "mATX", 2, 3200, "Ne", 1, 4, 1, 1, "https://www.asrock.com/mb/photo/X370M-HDV(L3).png", 480),
+    new Mothebroad("Gigabyte", "GA-X370-K3", "AM4", "X370", "ATX", 4, 3200, "Ne", 1, 8, 3, 2, "https://static.gigabyte.com/StaticFile/Image/Global/5ce3dfa453c6089bb738a3e45db8d679/Product/16930/png/500", 950),
+    new Mothebroad("MSI", "X470 Gaming Plus Max", "AM4", "X470", "ATX", 4, 4133, "Ne", 2, 6, 3, 3, "https://asset.msi.com/resize/image/global/product/product_8_20190717174039_5d2eed176ce56.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png", 770),
+    new Mothebroad("Asus", "TUF X470-PLUS GAMING", "AM4", "X470", "ATX", 4, 3466, "Ne", 3, 6, 3, 2, "https://www.asus.com/media/global/gallery/OGtnBg0jfcUMHyHS_setting_xxx_0_90_end_800.png", 1100),
+    new Mothebroad("Gigabyte", "X570 GAMING X", "AM4", "X570", "ATX", 4, 4733, "Ne", 2, 6, 3, 2, "https://static.gigabyte.com/StaticFile/Image/Global/91a7aca44388c13f1762a98b367e5c3f/Product/22137/webp/1000", 1200),
+    new Mothebroad("AsRock", "X570 Extreme4", "AM4", "X570", "ATX", 4, 4666, "Ne", 2, 8, 3, 2, "https://www.asrock.com/mb/photo/X570%20Extreme4(L3).png", 1830),
+    new Mothebroad("Gigabyte", "H310M-H", "LGA1151", "H310", "mATX", 2, 2666, "Ne", 0, 4, 2, 1, "https://static.gigabyte.com/StaticFile/Image/Global/a4d2776938d10d8728980b6c3474f9ef/Product/19321/png/500", 380),
+    new Mothebroad("AsRock", "H370M-HDV", "LGA1151", "H370", "mATX", 2, 2666, "Ne", 0, 4, 1, 1, "http://tw.asrock.com/mb/photo/H370M-HDV(L2).png", 480),
+    new Mothebroad("Asus", "PRIME B360M-A", "LGA1151", "B360", "mATX", 2, 2666, "Ne", 1, 6, 2, 1, "https://www.asus.com/media/global/gallery/PKubhjDnP6TvgsGp_setting_xxx_0_90_end_1000.png", 570),
+    new Mothebroad("Gigabyte", "B365 HD3", "LGA1151", "B365", "ATX", 2, 2666, "Ne", 1, 6, 2, 2, "https://static.gigabyte.com/StaticFile/Image/Global/386659f071e830af878bd84a1fd9aaee/Product/21689/png/500", 620),
+    new Mothebroad("AsRock", "Z370 Pro4", "LGA1151", "Z370", "ATX", 4, 4266, "Ne", 2, 6, 3, 3, "https://www.asrock.com/mb/photo/Z370%20Pro4(L2).png", 860),
+    new Mothebroad("Gigabyte", "Z390M", "LGA1151", "Z390", "mATX", 4, 4266, "Ne", 2, 6, 2, 2, "https://static.gigabyte.com/StaticFile/Image/Global/2b359ba50141dfb9389235d008dd7ffb/Product/20778/png/500", 910)
+]
 //Dodavanje komponenata u modal
-
 for (let i = 0; i < CPUList.length; i++) {
     addCpu.innerHTML += `
         <div class="row pc-part modal-close" id="cpu${i+1}" onclick="CpuAdded(this.id)">
@@ -310,16 +347,57 @@ for (let i = 4; i < coolerList.length; i++) {
                 </div>
         </div>`
 }
+for (let i = 0; i < mbList.length; i++) {
+    addMb.innerHTML += `<div class="row pc-part modal-close" id="mb${i+1}" onclick="MbAdded(this.id)">
+    <div class="col s12 m8 l2 offset-m2 offset-l5">
+        <img src="${mbList[i].image}" class="responsive-img">
+    </div>
+    <hr>
+    <div class="col s12 m12 l12 row center-align">
+        <p class="comp-modal-title flow-text" id="mbName${i+1}">${mbList[i].brand+" "+mbList[i].name}</p>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Čipset:<br>${mbList[i].chipset}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Socket:<br>${mbList[i].socket}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Veličina:<br>${mbList[i].size}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Broj RAM slotova:<br>${mbList[i].ramSlots}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Max RAM brzina:<br>${mbList[i].maxRamSpeed}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Wifi:<br>${mbList[i].wifi}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">M.2 utori:<br>${mbList[i].nvme}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">SATA utori:<br>${mbList[i].sata}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">PCI utori:<br>${mbList[i].pci}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">PCI-e utori:<br>${mbList[i].pcie}</p>
+        </div>
+        <div class="col s6 m3 l3">
+            <p class="comp-modal-text flow-text">Cijena:<br>${mbList[i].price}kn</p>
+        </div>
+</div>`
+}
 
 //Seacrh funkcija
-
 function Search(searchBar, list, searchBy) {
     console.clear()
     console.log("Searching for: " + searchBar.value)
     for (let i = 1; i <= list; i++) {
         if (document.getElementById(searchBy + i).innerHTML.toUpperCase().includes(searchBar.value.toUpperCase()) === true) {
             document.getElementById(searchBy + i).parentElement.parentElement.style.display = "block"
-            console.log(document.getElementById(searchBy + i).innerHTML)
         } else if (searchBar.value == "") {
             document.getElementById(searchBy + i).parentElement.parentElement.style.display = "block"
         } else {
@@ -327,7 +405,7 @@ function Search(searchBar, list, searchBy) {
         }
     }
 }
-//Aktivacija search funkcija
+//Aktivacija search funkcije
 cpuSearch.addEventListener("input", () => {
     Search(cpuSearch, CPUList.length, "cpuName")
 })
@@ -335,7 +413,7 @@ document.getElementById("coolerSearch").addEventListener("input", () => {
     Search(coolerSearch, coolerList.length - 4, "coolerName")
 })
 mbSearch.addEventListener("input", () => {
-
+    Search(mbSearch, mbList.length, "mbName")
 })
 ramSearch.addEventListener("input", () => {
 
@@ -357,14 +435,12 @@ fanSearch.addEventListener("input", () => {
 })
 
 //Dodavanje komponenata
-
 function CpuAdded(i) {
     i = String(i).split("u")[1]
     finalCpu = CPUList[i - 1]
     cCpu.innerHTML = `
         <div class="row center-align">    
             <p class="comp-text center-align flow-text">${finalCpu.brand+" "+finalCpu.series+" "+finalCpu.name}</p>
-            <p class="comp-modal-text flow-text">${finalCpu.price}kn<p>
             <div class="col s6 m4 l6 offset-s3 offset-m3 offset-l3">    
                 <img src="${finalCpu.image}" class="responsive-img selected-img">
             </div>
@@ -391,7 +467,6 @@ function CoolerAdded(i) {
     cCooler.innerHTML = `
     <div class="row">    
         <p class="comp-text center-align flow-text">${finalCooler.brand+" "+finalCooler.name}</p>
-        <p class="comp-modal-text flow-text">${finalCooler.price}kn</p>
         <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
             <img src="${finalCooler.image}" class="selected-img responsize-img">
         </div>
@@ -401,8 +476,22 @@ function CoolerAdded(i) {
     Price()
 }
 
-//Reset funkcije
+function MbAdded(i) {
+    i = String(i).split("b")[1]
+    finalMb = mbList[i - 1]
+    cMb.innerHTML = `
+        <div class="row center-align">    
+            <p class="comp-text center-align flow-text">${finalMb.brand+" "+finalMb.name}</p>
+            <div class="col s6 m4 l6 offset-s3 offset-m3 offset-l3">    
+                <img src="${finalMb.image}" class="responsive-img selected-img">
+            </div>
+        </div>
+        `
+    priceOfMb = finalMb.price
+    Price()
+}
 
+//Reset funkcije
 function ResetCpu() {
     cCpu.innerHTML = `
     <p class="comp-text center-align flow-text">PROCESOR</p>
@@ -411,6 +500,7 @@ function ResetCpu() {
         ResetCooler()
     }
     priceOfCpu = 0
+    finalCpu = null
     Price()
 }
 
@@ -419,11 +509,12 @@ function ResetCooler() {
     <p class="comp-text center-align flow-text">HLADNJAK ZA PROCESOR</p>
     <i class="material-icons comp-icon medium">add_circle</i>`
     priceOfCooler = 0
+    finalCooler = null
     Price()
 }
 
 function ResetMb() {
-    createImageBitmap.innerHTML = ` <p class="comp-text center-align flow-text">MATIČNA PLOČA</p>
+    cMb.innerHTML = ` <p class="comp-text center-align flow-text">MATIČNA PLOČA</p>
     <i class="material-icons comp-icon medium">add_circle</i>`
     priceOfMb = 0
     Price()
@@ -492,7 +583,6 @@ function Price() {
 }
 
 //Izabrane komponente
-
 let finalCpu = null
 let finalCooler = null
 let finalMb = null
