@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var instances = M.Modal.init(elems, {
         onCloseEnd: function () {
             cpuSearch.value = ""
-            Search(cpuSearch, CPUList.length, "cpuName")
+            Search(cpuSearch, cpuList.length, "cpuName")
             coolerSearch.value = ""
             Search(coolerSearch, coolerList.length - 4, "coolerName")
             mbSearch.value = ""
@@ -213,8 +213,19 @@ function CaseFan(brand, name, size, number, image, price) {
     this.price = price
 }
 
+//Izabrane komponente
+let finalCpu = null
+let finalCooler = null
+let finalMb = null
+let finalRam = null
+let finalGpu = null
+let finalStorage = null
+let finalPsu = null
+let finalCase = null
+let finalFans = null
+
 //Liste komponenti
-let CPUList = [
+let cpuList = [
     new CPU("AMD", "Ryzen 3", "1200", 4, 4, "AM4", 14, 65, 3.1, 3.4, "Ne", 3749, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-right-facing-1260x709_1.png", "Wraith Stealth", 460),
     new CPU("AMD", "Ryzen 3", "1300X", 4, 4, "AM4", 14, 65, 3.5, 3.7, "Ne", 3765, "Da", "https://www.amd.com/system/files/24301-ryzen-3-pib-left-facing-1260x709_2.png", "Wraith Stealth", 500),
     new CPU("AMD", "Ryzen 3", "2200G", 4, 8, "AM4", 14, 65, 3.5, 3.7, "Radeon Vega 8", 3693, "Da", "https://www.amd.com/system/files/82446-raven-am4-ryzen-3-pib-left-facing-1260x709.png", "Wraith Stealth", 600),
@@ -284,42 +295,81 @@ let mbList = [
     new Mothebroad("AsRock", "Z370 Pro4", "LGA1151", "Z370", "ATX", 4, 4266, "Ne", 2, 6, 3, 3, "https://www.asrock.com/mb/photo/Z370%20Pro4(L2).png", 860),
     new Mothebroad("Gigabyte", "Z390M", "LGA1151", "Z390", "mATX", 4, 4266, "Ne", 2, 6, 2, 2, "https://static.gigabyte.com/StaticFile/Image/Global/2b359ba50141dfb9389235d008dd7ffb/Product/20778/png/500", 910)
 ]
+let ramList = [
+    new RAM("G.Skill", "Value 4GB", 4, 2133, 15, 1, "https://i.imgur.com/Y8x8iXI.png", 190),
+    new RAM("G.Skill", "Ripjaws V 4GB", 4, 2400, 17, 1, "https://i.imgur.com/kIa3zhH.png", 210),
+    new RAM("Patriot", "Signature 4GB", 4, 2666, 19, 1, "https://i.imgur.com/lPTItgY.png", 180),
+    new RAM("Kingston", "HyperX Fury 4GB", 4, 3000, 15, 1, "https://i.imgur.com/Cs2qLsn.png", 230),
+    new RAM("Corsair", "Value Select 8GB", 8, 2133, 15, 1, "https://i.imgur.com/u1OYP7a.png", 410),
+    new RAM("G.SKill", "Aegis 8GB", 8, 2133, 15, 2, "https://i.imgur.com/0hVprBh.png", 390),
+    new RAM("Corsair", "Vengance LPX 8GB", 8, 2400, 14, 1, "https://www.corsair.com/medias/sys_master/images/images/h9b/haf/9110351904798/-CMK8GX4M1A2400C14-Gallery-VENG-LPX-BLK-01.png", 360),
+    new RAM("Geil", "Super Luce RGB TUF 8GB", 8, 2400, 16, 2, "https://i.imgur.com/tYJm3nU.png", 340),
+    new RAM("Patriot", "Viper Steel 8GB", 8, 3000, 16, 1, "https://i.imgur.com/XPonu5F.png", 300),
+    new RAM("G.Skill", "Ripjaws V 8GB", 8, 3000, 15, 2, "https://i.imgur.com/npwYb36.png", 400),
+    new RAM("Thermaltake", "Toughram Z-One 8GB", 8, 3600, 18, 1, "https://i.imgur.com/HmjqRrC.png", 430),
+    new RAM("Adata", "Gammix D30 8GB", 8, 3600, 19, 2, "https://i.imgur.com/5fXh5qd.png", 390),
+    new RAM("G.Skill", "Aegis 16GB", 16, 2400, 17, 1, "https://i.imgur.com/RAjRLzd.png", 550),
+    new RAM("Crucial", "Ballistix 16GB", 16, 2400, 19, 2, "https://i.imgur.com/TqD5wWV.png", 630),
+    new RAM("Kingston", "HyperX Fury 16GB", 16, 3000, 15, 4, "https://i.imgur.com/DHI8uHm.png", 840),
+    new RAM("Corsair", "Vengance LPX 16GB", 16, 3000, 16, 1, "https://www.corsair.com/medias/sys_master/images/images/h9b/haf/9110351904798/-CMK8GX4M1A2400C14-Gallery-VENG-LPX-BLK-01.png", 640),
+    new RAM("Patriot", "Viper 4 16GB", 16, 3000, 16, 2, "https://i.imgur.com/RH6IKJj.png", 630),
+    new RAM("Kingston", "HyperX Fury 16GB", 16, 3200, 16, 1, "https://i.imgur.com/skLtyOC.png", 620),
+    new RAM("G.SKill", "Sniper X 16GB", 16, 3200, 16, 2, "https://i.imgur.com/CJUEFgZ.png", 700),
+    new RAM("Kingston", "HyperX Fury 16GB", 16, 3600, 18, 1, "https://i.imgur.com/Wy47BOw.png", 670),
+    new RAM("Corsair", "Vengance LPX 16GB", 16, 3600, 16, 2, "https://www.nabava.net/slike/products/27/66/11566627/thumb290_corsair-vengeance-lpx-16gb-ddr4-3600mhz-cmk16gx4m2d3600c18-2x8gb_33d20b9d.png", 730),
+    new RAM("Patriot", "Viper Steel 16GB", 16, 4000, 16, 4, "https://i.imgur.com/l8cO1wl.png", 1000),
+    new RAM("Corsair", "Vengance LPX 32GB", 32, 2400, 15, 2, "https://www.nabava.net/slike/products/27/66/11566627/thumb290_corsair-vengeance-lpx-16gb-ddr4-3600mhz-cmk16gx4m2d3600c18-2x8gb_33d20b9d.png", 1340),
+    new RAM("G.Skill", "Ripjaws 4 32GB", 32, 2400, 15, 4, "https://i.imgur.com/uXVJSL1.png", 1180),
+    new RAM("Crucial", "Ballistix Red 32GB", 32, 3200, 16, 1, "https://i.imgur.com/mszOqml.png", 1280),
+    new RAM("G.Skill", "Ripjaws V 32GB", 32, 3200, 16, 2, "https://i.imgur.com/yJAEY4a.png", 1250),
+    new RAM("Kingston", "HyperX Fury RGB 32GB", 32, 3200, 16, 4, "https://i.imgur.com/7BCGRRu.png", 1500),
+    new RAM("Kingston", "HyperX Predator 32GB", 32, 3600, 18, 1, "https://i.imgur.com/wZOxs58.png", 1610),
+    new RAM("Patriot", "Viper RGB 32GB", 32, 3600, 18, 2, "https://i.imgur.com/g3wdGPS.png", 1520),
+    new RAM("G.Skill", "Ripjaws V 64GB", 64, 2666, 18, 2, "https://i.imgur.com/YvhnDSN.png", 3120),
+    new RAM("Kingston", "HyperX Predator Predator 64GB", 64, 2666, 18, 4, "https://i.imgur.com/OvAN9a7.png", 2680),
+    new RAM("Patriot", "Viper Blackout 64GB", 64, 3200, 19, 2, "https://i.imgur.com/ntfJmy2.png", 2450),
+    new RAM("G.Skill", "Flare X 64GB", 64, 3200, 16, 4, "https://i.imgur.com/zzaaUXH.png", 2750),
+    new RAM("Patriot", "Viper Steel 64GB", 64, 3600, 16, 2, "https://i.imgur.com/48mm3e6.png", 2720),
+    new RAM("G.Skill", "Trident Z Neo 64GB", 64, 3600, 18, 4, "https://i.imgur.com/AMZ2t1h.png", 3600),
+
+]
+
 //Dodavanje komponenata u modal
-for (let i = 0; i < CPUList.length; i++) {
+for (let i = 0; i < cpuList.length; i++) {
     addCpu.innerHTML += `
         <div class="row pc-part modal-close" id="cpu${i+1}" onclick="CpuAdded(this.id)">
             <div class="col s12 m8 l2 offset-m2 offset-l5">
-                <img src="${CPUList[i].image}" class="responsive-img">
+                <img src="${cpuList[i].image}" class="responsive-img">
             </div>
             <hr>
             <div class="col s12 m12 l12 row center-align">    
-                <p class="comp-modal-title flow-text" id="cpuName${i+1}">${CPUList[i].brand+" "+CPUList[i].series+" "+CPUList[i].name}</p>
+                <p class="comp-modal-title flow-text" id="cpuName${i+1}">${cpuList[i].brand+" "+cpuList[i].series+" "+cpuList[i].name}</p>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Socket:<br>${CPUList[i].socket}</p>
+                    <p class="comp-modal-text flow-text">Socket:<br>${cpuList[i].socket}</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Velicina transistora:<br>${CPUList[i].tSize}nm</p>
+                    <p class="comp-modal-text flow-text">Velicina transistora:<br>${cpuList[i].tSize}nm</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Snaga:<br>${CPUList[i].tdp}W</p>
+                    <p class="comp-modal-text flow-text">Snaga:<br>${cpuList[i].tdp}W</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Brzina:<br>${CPUList[i].baseGhz}GHz-${CPUList[i].boostGhz}GHz</p>
+                    <p class="comp-modal-text flow-text">Brzina:<br>${cpuList[i].baseGhz}GHz-${cpuList[i].boostGhz}GHz</p>
                </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Intergrirana grafika:<br>${CPUList[i].graphics}</p>
+                    <p class="comp-modal-text flow-text">Intergrirana grafika:<br>${cpuList[i].graphics}</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Performansa:<br>${CPUList[i].score}</p>
+                    <p class="comp-modal-text flow-text">Performansa:<br>${cpuList[i].score}</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Mogucnost OC:<br>${CPUList[i].oc}</p>
+                    <p class="comp-modal-text flow-text">Mogucnost OC:<br>${cpuList[i].oc}</p>
                 </div>
                 <div class="col s6 m3 l2">
-                    <p class="comp-modal-text flow-text">Dolazi s hladnjakom:<br>${CPUList[i].cooler}</p>
+                    <p class="comp-modal-text flow-text">Dolazi s hladnjakom:<br>${cpuList[i].cooler}</p>
                 </div>
                 <div class="col s6 m3 l2">
-                <p class="comp-modal-text flow-text">Cijena:<br>${CPUList[i].price}kn</p>
+                <p class="comp-modal-text flow-text">Cijena:<br>${cpuList[i].price}kn</p>
                 </div>
         </div>`
 
@@ -368,7 +418,7 @@ for (let i = 0; i < mbList.length; i++) {
             <p class="comp-modal-text flow-text">Broj RAM slotova:<br>${mbList[i].ramSlots}</p>
         </div>
         <div class="col s6 m3 l3">
-            <p class="comp-modal-text flow-text">Max RAM brzina:<br>${mbList[i].maxRamSpeed}</p>
+            <p class="comp-modal-text flow-text">Max RAM brzina:<br>${mbList[i].maxRamSpeed}MHz</p>
         </div>
         <div class="col s6 m3 l3">
             <p class="comp-modal-text flow-text">Wifi:<br>${mbList[i].wifi}</p>
@@ -390,11 +440,35 @@ for (let i = 0; i < mbList.length; i++) {
         </div>
 </div>`
 }
+for (let i = 0; i < ramList.length; i++) {
+    addRam.innerHTML +=
+        `<div class="row pc-part modal-close" id="ram${i+1}" onclick="RamAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
+                <img src="${ramList[i].image}" class="responsive-img">
+            </div>
+            <hr>
+            <div class="col s12 m12 l12 row center-align">
+                <p class="comp-modal-title flow-text" id="ramName${i+1}">${ramList[i].brand+" "+ramList[i].name}</p>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Kapacitet:<br>${ramList[i].capacity}GB</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Brzina:<br>${ramList[i].speed}MHz</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Latencija:<br>CL${ramList[i].latency}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Broj memorijskih kartica:<br>${ramList[i].stickNumber}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                <p class="comp-modal-text flow-text">Cijena:<br>${ramList[i].price}kn</p>
+            </div>
+        </div>`
+}
 
 //Seacrh funkcija
 function Search(searchBar, list, searchBy) {
-    console.clear()
-    console.log("Searching for: " + searchBar.value)
     for (let i = 1; i <= list; i++) {
         if (document.getElementById(searchBy + i).innerHTML.toUpperCase().includes(searchBar.value.toUpperCase()) === true) {
             document.getElementById(searchBy + i).parentElement.parentElement.style.display = "block"
@@ -407,7 +481,7 @@ function Search(searchBar, list, searchBy) {
 }
 //Aktivacija search funkcije
 cpuSearch.addEventListener("input", () => {
-    Search(cpuSearch, CPUList.length, "cpuName")
+    Search(cpuSearch, cpuList.length, "cpuName")
 })
 document.getElementById("coolerSearch").addEventListener("input", () => {
     Search(coolerSearch, coolerList.length - 4, "coolerName")
@@ -416,7 +490,7 @@ mbSearch.addEventListener("input", () => {
     Search(mbSearch, mbList.length, "mbName")
 })
 ramSearch.addEventListener("input", () => {
-
+    Search(ramSearch, ramList.length, "ramName")
 })
 gpuSearch.addEventListener("input", () => {
 
@@ -437,7 +511,7 @@ fanSearch.addEventListener("input", () => {
 //Dodavanje komponenata
 function CpuAdded(i) {
     i = String(i).split("u")[1]
-    finalCpu = CPUList[i - 1]
+    finalCpu = cpuList[i - 1]
     cCpu.innerHTML = `
         <div class="row center-align">    
             <p class="comp-text center-align flow-text">${finalCpu.brand+" "+finalCpu.series+" "+finalCpu.name}</p>
@@ -446,6 +520,7 @@ function CpuAdded(i) {
             </div>
         </div>
         `
+    //Dodavanje besplatnog hladnjaka
     if (finalCooler == null || finalCooler.price == 0) {
         if (finalCpu.cooler.length > 2) {
             for (let i = 0; i < 4; i++) {
@@ -456,6 +531,18 @@ function CpuAdded(i) {
         } else {
             ResetCooler()
         }
+    }
+    //Kompatibilnost
+    for (let i = 0; i < mbList.length; i++) {
+        if (mbList[i].socket != finalCpu.socket) {
+            document.getElementById("mbName" + (i + 1)).parentElement.parentElement.style.display = "none"
+        } else {
+            document.getElementById("mbName" + (i + 1)).parentElement.parentElement.style.display = "block"
+        }
+    }
+    if (finalMb !== null && finalCpu.socket != finalMb.socket) {
+        finalMb = null
+        ResetMb()
     }
     priceOfCpu = finalCpu.price
     Price()
@@ -487,7 +574,37 @@ function MbAdded(i) {
             </div>
         </div>
         `
-    priceOfMb = finalMb.price
+
+    //Kompatibilnost
+    for (let i = 0; i < ramList.length; i++) {
+        if (ramList[i].stickNumber != finalMb.ramSlots || ramList[i].speed > finalMb.maxRamSpeed) {
+            document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "none"
+        } else {
+            document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "block"
+        }
+    }
+    if (finalRam !== null && (ramList[i].stickNumber != finalMb.ramSlots || ramList[i].speed > finalMb.maxRamSpeed)) {
+        finalRam = null
+        ResetRam()
+    }
+
+priceOfMb = finalMb.price
+Price()
+}
+
+function RamAdded(i) {
+    i = String(i).split("m")[1]
+    finalRam = ramList[i - 1]
+    cRam.innerHTML = `
+        <div class="row center-align">    
+            <p class="comp-text center-align flow-text">${finalRam.brand+" "+finalRam.name}</p>
+            <div class="col s6 m4 l6 offset-s3 offset-m3 offset-l3">    
+                <img src="${finalRam.image}" class="responsive-img selected-img">
+            </div>
+        </div>
+        `
+
+    priceOfRam = finalRam.price
     Price()
 }
 
@@ -501,6 +618,10 @@ function ResetCpu() {
     }
     priceOfCpu = 0
     finalCpu = null
+    //Prikazivanje kompatibilnih maticnih ploca
+    for (let i = 0; i < mbList.length; i++) {
+        document.getElementById("mbName" + (i + 1)).parentElement.parentElement.style.display = "block"
+    }
     Price()
 }
 
@@ -511,6 +632,9 @@ function ResetCooler() {
     priceOfCooler = 0
     finalCooler = null
     Price()
+    for (let i = 0; i < ramList.length; i++) {
+        document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "block"
+    }
 }
 
 function ResetMb() {
@@ -581,14 +705,3 @@ function Price() {
     coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
     pcPrice.innerHTML = totalPrice + "kn"
 }
-
-//Izabrane komponente
-let finalCpu = null
-let finalCooler = null
-let finalMb = null
-let finalRam = null
-let finalGpu = null
-let finalStorage = null
-let finalPsu = null
-let finalCase = null
-let finalFans = null
