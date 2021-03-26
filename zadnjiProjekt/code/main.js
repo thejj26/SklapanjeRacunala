@@ -51,8 +51,11 @@ document.addEventListener('DOMContentLoaded', function () {
             coolerSearch.value = ""
             Search(coolerSearch, coolerList.length - 4, "coolerName")
             mbSearch.value = ""
+            Search(mbSearch, mbList.length, "mbName")
             ramSearch.value = ""
+            Search(ramSearch, ramList.length, "ramName")
             gpuSearch.value = ""
+            Search(gpuSearch, gpuList.length, "gpuName")
             storageSearch.value = ""
             psuSearch.value = ""
             caseSearch.value = ""
@@ -109,19 +112,16 @@ function RAM(brand, name, capacity, speed, latency, stickNumber, image, price) {
     this.price = price
 }
 
-function GPU(brand, series, gpu, name, vramCapacity, vramType, tdp, coreClock, boostClock, score, length, cooling, image, price) {
+function GPU(brand, series, gpu, vramCapacity, vramType, tdp, coreClock, boostClock, score, image, price) {
     this.brand = brand
     this.series = series
     this.gpu = gpu
-    this.name = name
     this.vramCapacity = vramCapacity
     this.vramType = vramType
     this.tdp = tdp
     this.coreClock = coreClock
     this.boostClock = boostClock
     this.score = score
-    this.length = length
-    this.cooling = cooling
     this.image = image
     this.price = price
 }
@@ -326,12 +326,32 @@ let ramList = [
     new RAM("Kingston", "HyperX Predator 32GB", 32, 3600, 18, 1, "https://i.imgur.com/wZOxs58.png", 1610),
     new RAM("Patriot", "Viper RGB 32GB", 32, 3600, 18, 2, "https://i.imgur.com/g3wdGPS.png", 1520),
     new RAM("G.Skill", "Ripjaws V 64GB", 64, 2666, 18, 2, "https://i.imgur.com/YvhnDSN.png", 3120),
-    new RAM("Kingston", "HyperX Predator Predator 64GB", 64, 2666, 18, 4, "https://i.imgur.com/OvAN9a7.png", 2680),
+    new RAM("Kingston", "HyperX Predator 64GB", 64, 2666, 18, 4, "https://i.imgur.com/OvAN9a7.png", 2680),
     new RAM("Patriot", "Viper Blackout 64GB", 64, 3200, 19, 2, "https://i.imgur.com/ntfJmy2.png", 2450),
     new RAM("G.Skill", "Flare X 64GB", 64, 3200, 16, 4, "https://i.imgur.com/zzaaUXH.png", 2750),
     new RAM("Patriot", "Viper Steel 64GB", 64, 3600, 16, 2, "https://i.imgur.com/48mm3e6.png", 2720),
     new RAM("G.Skill", "Trident Z Neo 64GB", 64, 3600, 18, 4, "https://i.imgur.com/AMZ2t1h.png", 3600),
 
+]
+let gpuList = [
+    new GPU("Nvidia", "GTX", "1650", 4, "GDDR6", 75, 1410, 1590, 3611, "https://i.imgur.com/SztB2wj.png", 980),
+    new GPU("Nvidia", "GTX", "1650 Super", 4, "GDDR6", 100, 1530, 1725, 4799, "https://i.imgur.com/SztB2wj.png", 1050),
+    new GPU("Nvidia", "GTX", "1660", 6, "GDDR5", 95, 1530, 1785, 5513, "https://i.imgur.com/h4XUEKD.png", 1410),
+    new GPU("Nvidia", "GTX", "1660 Super", 6, "GDDR6", 125, 1530, 1785, 6127, "https://i.imgur.com/GnbvBVZ.png", 1500),
+    new GPU("Nvidia", "GTX", "1660 Ti", 6, "GDDR6", 125, 1500, 1770, 6341, "https://i.imgur.com/55kdhOv.png", 1800),
+    new GPU("Nvidia", "RTX", "2060", 6, "GDDR6", 160, 1365, 1680, 7422, "https://i.imgur.com/DecksZp.png", 2250),
+    new GPU("Nvidia", "RTX", "2060 Super", 8, "GDDR6", 175, 1470, 1660, 8482, "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2060-super/geforce-rtx-2060-super-shop-P@2x.png", 2570),
+    new GPU("Nvidia", "RTX", "2070", 8, "GDDR6", 185, 1410, 1710, 8704, "https://i.imgur.com/p17UltL.png", 3210),
+    new GPU("Nvidia", "RTX", "2070 Super", 8, "GDDR6", 215, 1605, 1770, 9835, "https://i.imgur.com/arwfYif.png", 3420),
+    new GPU("Nvidia", "RTX", "2080", 8, "GDDR6", 225, 1515, 1800, 10474, "https://i.imgur.com/1quXlxP.png", 4500),
+    new GPU("Nvidia", "RTX", "2080 Super", 8, "GDDR6", 250, 1650, 1815, 11189, "https://i.imgur.com/87xxBFj.png", 4830),
+    new GPU("Nvidia", "RTX", "2080 Ti", 11, "GDDR6", 260, 1350, 1635, 13562, "https://hexus.net/media/uploaded/2018/9/14041b14-b2dd-470c-8cd6-dd71aaaf42fa.png", 6430),
+    new GPU("Nvidia", "Titan", "RTX", 24, "GDDR6", 280, 1365, 1770, 14409, "https://i.imgur.com/KYr1j8G.png", 16080),
+    new GPU("Nvidia", "RTX", "3060", 11, "GDDR6", 170, 1320, 1780, 6452, "https://i.imgur.com/LYhu1Fx.png", 2120),
+    new GPU("Nvidia", "RTX", "3060 Ti", 8, "GDDR6", 200, 1410, 1670, 9902, "https://i.imgur.com/US4dLWk.png", 2600),
+    new GPU("Nvidia", "RTX", "3070", 8, "GDDR6", 220, 1500, 1730, 10489, "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/rtx-3070/geforce-rtx-3070-shop-600-p@2x.png", 3210),
+    new GPU("Nvidia", "RTX", "3080", 10, "GDDR6", 320, 1440, 1710, 13903, "https://i.imgur.com/mvaTQqE.png", 4500),
+    new GPU("Nvidia", "RTX", "3090", 24, "GDDR6", 350, 1400, 1700, 15302, "https://i.imgur.com/DxLNSuj.png", 9650)
 ]
 
 //Dodavanje komponenata u modal
@@ -463,6 +483,40 @@ for (let i = 0; i < ramList.length; i++) {
                 </div>
                 <div class="col s6 m3 l3">
                 <p class="comp-modal-text flow-text">Cijena:<br>${ramList[i].price}kn</p>
+                </div>
+            </div>
+        </div>`
+}
+for (let i = 0; i < gpuList.length; i++) {
+    addGpu.innerHTML +=
+        `<div class="row pc-part modal-close" id="gpu${i+1}" onclick="GpuAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
+                <img src="${gpuList[i].image}" class="responsive-img">
+            </div>
+            <hr>
+            <div class="col s12 m12 l12 row center-align">
+                <p class="comp-modal-title flow-text" id="gpuName${i+1}">${gpuList[i].brand+" "+gpuList[i].series+" "+gpuList[i].gpu}</p>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Grafički čip:<br>${gpuList[i].series+" "+gpuList[i].gpu}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Kapacitet video memorije:<br>${gpuList[i].vramCapacity}GB</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Vrsta video memorije:<br>${gpuList[i].vramType}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Snaga:<br>${gpuList[i].tdp}W</p>
+                </div>
+                <div class="col s6 m3 l3">
+                <p class="comp-modal-text flow-text">Brzina:<br>${gpuList[i].coreClock}MHz-${gpuList[i].boostClock}MHz</p>
+                </div>
+                <div class="col s6 m3 l3">
+                <p class="comp-modal-text flow-text">Performansa:<br>${gpuList[i].score}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                <p class="comp-modal-text flow-text">Cijena:<br>${gpuList[i].price}kn</p>
+                </div>
             </div>
         </div>`
 }
@@ -493,7 +547,7 @@ ramSearch.addEventListener("input", () => {
     Search(ramSearch, ramList.length, "ramName")
 })
 gpuSearch.addEventListener("input", () => {
-
+    Search(gpuSearch, gpuList.length, "gpuName")
 })
 storageSearch.addEventListener("input", () => {
 
@@ -532,7 +586,6 @@ function CpuAdded(i) {
             ResetCooler()
         }
     }
-    //Kompatibilnost
     for (let i = 0; i < mbList.length; i++) {
         if (mbList[i].socket != finalCpu.socket) {
             document.getElementById("mbName" + (i + 1)).parentElement.parentElement.style.display = "none"
@@ -577,19 +630,19 @@ function MbAdded(i) {
 
     //Kompatibilnost
     for (let i = 0; i < ramList.length; i++) {
-        if (ramList[i].stickNumber != finalMb.ramSlots || ramList[i].speed > finalMb.maxRamSpeed) {
+        if (ramList[i].stickNumber > finalMb.ramSlots || ramList[i].speed > finalMb.maxRamSpeed) {
             document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "none"
         } else {
             document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "block"
         }
     }
-    if (finalRam !== null && (ramList[i].stickNumber != finalMb.ramSlots || ramList[i].speed > finalMb.maxRamSpeed)) {
+    if (finalRam != null && (finalRam.stickNumber > finalMb.ramSlots || finalRam.speed > finalMb.maxRamSpeed)) {
         finalRam = null
         ResetRam()
     }
 
-priceOfMb = finalMb.price
-Price()
+    priceOfMb = finalMb.price
+    Price()
 }
 
 function RamAdded(i) {
@@ -605,6 +658,21 @@ function RamAdded(i) {
         `
 
     priceOfRam = finalRam.price
+    Price()
+}
+
+function GpuAdded(i) {
+    i = String(i).split("u")[1]
+    finalGpu = gpuList[i - 1]
+    cGpu.innerHTML = `
+    <div class="row">    
+        <p class="comp-text center-align flow-text">${finalGpu.brand+" "+finalGpu.series+" "+finalGpu.gpu}</p>
+        <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
+            <img src="${finalGpu.image}" class="selected-img responsize-img">
+        </div>
+    </div>
+    `
+    priceOfGpu = finalGpu.price
     Price()
 }
 
@@ -642,6 +710,10 @@ function ResetMb() {
     <i class="material-icons comp-icon medium">add_circle</i>`
     priceOfMb = 0
     Price()
+    //Prikazivanje kompatibilne memorije
+    for (let i = 0; i < ramList.length; i++) {
+        document.getElementById("ramName" + (i + 1)).parentElement.parentElement.style.display = "block"
+    }
 }
 
 function ResetRam() {
@@ -703,5 +775,8 @@ function Price() {
     totalPrice = priceOfCpu + priceOfCooler + priceOfMb + priceOfRam + priceOfGpu + priceOfStorage + priceOfPsu + priceOfCase + PriceOfFans
     cpuPrice.innerHTML = "Cijena procesora:<br>" + priceOfCpu + "kn"
     coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
+    mbPrice.innerHTML = "Cijena matične ploče:<br>" + priceOfMb + "kn"
+    ramPrice.innerHTML = "Cijena rande memorije:<br>" + priceOfRam + "kn"
+    gpuPrice.innerHTML = "Cijena graficke kartice:<br>" + priceOfGpu + "kn"
     pcPrice.innerHTML = totalPrice + "kn"
 }
