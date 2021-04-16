@@ -1,6 +1,5 @@
 nav {
     background-color: #271675 !important;
-    display: flex;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -146,8 +145,10 @@ p {
     font-size: 20px;
 }
 
-.modal {
-    width: 95% !important;
+#bigModals .modal {
+    width: 90% !important;
+    min-height: 99% !important;
+    top: .5% !important;
 }
 
 .pc-part:hover {
@@ -209,4 +210,50 @@ body {
 
 .modal .btn {
     margin-top: 5vh;
+}
+
+ion-icon {
+    font-size: 96px;
+    color: #543cc0;
+    margin-bottom: 0;
+}
+
+#gaming,
+#workstation {
+    color: #646464;
+    font-size: 2.2em;
+    margin-bottom: 0 !important;
+}
+
+.performance {
+    margin-top: 5vh !important;
+    margin-bottom: 10vh !important;
+}
+
+.perf-text {
+    color: #646464;
+    font-size: 1.5em;
+    margin-bottom: 0 !important;
+}
+
+.yes {
+    color: #1f6e07;
+    font-size: 24px;
+}
+
+.no {
+    color: rgb(163, 2, 2);
+    font-size: 24px;
+}
+
+table th,
+td {
+    color: #646464;
+}
+
+#power,
+#reccomendedPower {
+    font-size: 29px;
+    margin-bottom: 5vh;
+    margin-top: 0 !important;
 }

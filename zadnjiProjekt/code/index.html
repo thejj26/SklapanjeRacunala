@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!--CSS and meta tags-->
+    <!--CSS, skripte i meta tagovi-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <title>PC Config</title>
 </head>
 
@@ -23,7 +24,7 @@
         </div>
     </nav>
     <div id="floatIn">
-        <!--Top text and buttons-->
+        <!--Intro i botun-->
         <div class="row intro" id="topText">
             <div class="col s12 m12 l12 center-align">
                 <div class="container"></div>
@@ -31,11 +32,9 @@
                     src="https://github.com/thejj26/SklapanjeRacunala/blob/main/zadnjiProjekt/resources/logo.png?raw=true">
                 <p class="text flow-text">PC Config je web stranica koja olakšava odabir dijelova za vaše novo
                     računalo. Naša web stranica sadrži kratki opis svake računalne komponente, tako da ne trebate
-                    biti
-                    iskusni informatičar ako želite koristiti sastaviti računalo. Tu je i izvanredan PC Konfigurator
-                    koji ima velik izbor računalnih dijelova s detaljnim specifikacijama. Niste sigurni što
-                    odabrati? Ne brinite, tu je i automatski PC Konfigurator koji će sastaviti računalo prema vašim
-                    potrebama. Uživajte u ovoj ponudi potpuno besplatno!
+                    biti iskusni informatičar ako želite sastaviti računalo. Tu je i izvanredan PC
+                    Konfigurator
+                    koji ima velik izbor računalnih dijelova s detaljnim specifikacijama.
                 </p>
                 <a class="btn deep-purple darken-4 waves-effect flow-text" id="pcBuilderBtn">PC Konfigurator<i
                         class="material-icons right flow-text">build</i></a>
@@ -43,17 +42,18 @@
         </div>
     </div>
 
-    <!--Building guide-->
+    <!--Vodic-->
     <div class="buildGuide row">
         <div class="col s12 m12 l12 center-align">
             <div class="container">
                 <p class="title flow-text">Kako odabrati komponente za vaše računalo</p>
                 <p class="text flow-text">Biranje pravih komponenti za vaše računalo može biti težak zadatak. Ali mi
                     smo tu da vam pomognemo! Ispod ćete pronaći sve što trebate znati o računalnim komponentama.
-                    Jednostavno kliknite sliku bilo koje komponente i pojavit će se tekst sa svim informacijama.</p>
+                    Jednostavno kliknite sliku bilo koje komponente i pojavit će se tekst sa svim informacijama o njoj.</p>
             </div>
         </div>
     </div>
+
     <!--Carousel-->
     <div class="carousel components center-align">
         <div class="carousel-item col s12 m6 l3 center-align">
@@ -105,6 +105,7 @@
             </a>
         </div>
     </div>
+
     <div class="row center-align">
         <div class="col s6 m6 l6">
             <i class="small material-icons flow-text center-align left-arrow" id="prev">keyboard_arrow_left</i>
@@ -114,7 +115,8 @@
         </div>
     </div>
     </div>
-    <!--Modals-->
+
+    <!--Modali-->
     <div>
         <!--CPU-->
         <div id="cpuModal" class="modal">
@@ -270,15 +272,14 @@
                     and help with the intake of cold air and with the exhaust of hot air.</p>
             </div>
         </div>
-        <!--Components-->
+        <!--Dodavanje komponenata-->
         <div class="builder-tool center-align">
             <div class="container">
                 <p class="title flow-text center-align">PC Konfigurator</p>
                 <p class="text flow-text center-align" id="builder">PC Konfigurator omogućuje vam izradu vlastitog
-                    računala s raznim dijelovima. Nakon što završite s odabirom svih komponenata, alati ocjenjuju izradu
-                    vašeg računala i procjenjuju njegove performanse u više kategorija. Nije za tebe? Nema potrebe za
-                    brigom! Pomoću automatskog Pc Konfiguratora dobit ćete prilagođeno računalo izrađeno samo za vas.
-                    Jednostavno odaberite svoj budžet i slučaj upotrebe te bi on trebao biti sastavljen za vas.</p>
+                    računala s raznim komponentama. Nakon što završite s odabirom svih komponenata, alati ocjenjuju
+                    performansu vašeg računala u dvije kategorije te prikazuju moguća upozorenja vezana uz vaše računalo.
+                </p>
             </div>
             <div class="row center-align">
                 <div class="component col s10 m6 l3 center-align modal-trigger offset-s1" id="cCpu" href="#addCpu">
@@ -323,8 +324,9 @@
             </div>
         </div>
     </div>
-    <!--Part modals-->
-    <div>
+
+    <!--Modali za biranje komponenti-->
+    <div id="bigModals">
         <div id="addCpu" class="modal">
             <div class="modal-content">
                 <div class="row">
@@ -469,6 +471,176 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--Performansa-->
+    <hr>
+    <div class="performance row center-align">
+        <!--Snaga-->
+        <div class="col s6 m6 l6 center-align">
+            <p class="text flow-text" id="power">Snaga: 0W</p>
+        </div>
+        <div class="col s6 m6 l6 center-align">
+            <p class="text flow-text" id="reccomendedPower">Najmanja preporučena snaga napajanja: 0W</p>
+        </div>
+        <!--Gaming-->
+        <div class="col s6 m6 l6 center-align">
+            <p class="perf-text">Gaming</p>
+            <ion-icon name="game-controller" href="#gamingModal" class="modal-trigger"></ion-icon>
+            <p id="gaming">0/100</p>
+        </div>
+        <!--Produktivnost-->
+        <div class="col s6 m6 l6 center-align">
+            <p class="perf-text">Produktivnost</p>
+            <ion-icon name="desktop-outline" href="#workstationModal" class="modal-trigger"></ion-icon>
+            <p id="workstation">0/100</p>
+        </div>
+        <!--Informativni modali-->
+        <div id="gamingModal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <p>Gaming performansa opisuje performansu u slučaju igranja igara. Ovi rezultati nisu isti za sve
+                    igre, već su generalizrani.</p>
+                <table class="centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Performansa na stranici</th>
+                            <th>1080p @60FPS</th>
+                            <th>1080p @144FPS</th>
+                            <th>1440p @60FPS</th>
+                            <th>1440p @144FPS</th>
+                            <th>4k @60FPS</th>
+                            <th>4k @144FPS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0-30</td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>31-60</td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>61-90</td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="close-sharp" class="no"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>91-100</td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="checkmark-sharp" class="yes"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="workstationModal" class="modal bottom-sheet">
+            <div class="modal-content">
+                <p>Performansa produktivnosti opisuje performansu računala u uvjetima kao 3D modeliranje, uređivanje
+                    videa i sličnim zahtjevnim zadatcima.</p>
+                <table class="centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Performansa na stranici</th>
+                            <th>Opis performanse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0-25</td>
+                            <td>Loša performansa, moguće je obavljati zadatke, ali sporo i neproduktivno</td>
+                        </tr>
+                        <tr>
+                            <td>26-40</td>
+                            <td>OK performansa, zadatke je moguće obavljati pri normalnim uvjetima</td>
+                        </tr>
+                        <tr>
+                            <td>41-65</td>
+                            <td>Dobra performansa, zadatke je moguće obavljati u dobrim uvjetima i dosta produktivnije
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>66-85</td>
+                            <td>Vrlo dobra performansa, zadatke je moguće obavljati vrlo lagano i produktivno</td>
+                        </tr>
+                        <tr>
+                            <td>86-100</td>
+                            <td>Odlična performansa, zadatke je moguće obavljati bez problema i najproduktivnije</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     </div>
 
     <!--Ukupna cijena-->
