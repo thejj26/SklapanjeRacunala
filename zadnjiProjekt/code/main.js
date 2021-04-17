@@ -53,7 +53,7 @@ next.addEventListener('mousedown', function (e) {
 
 document.addEventListener('DOMContentLoaded', function () { //EventListener slusa zatvaranje modala te brise search value
 
-    var elems = document.querySelectorAll('.modal')
+    var elems = document.querySelectorAll(".modal")
     var instances = M.Modal.init(elems, {
 
         onCloseEnd: function () {
@@ -68,8 +68,11 @@ document.addEventListener('DOMContentLoaded', function () { //EventListener slus
             gpuSearch.value = ""
             Search(gpuSearch, gpuList.length, "gpuName")
             storageSearch.value = ""
+            Search(storageSearch, storageList.length, "storageName")
             psuSearch.value = ""
+            Search(psuSearch, psuList.length, "psuName")
             caseSearch.value = ""
+            Search(caseSearch, caseList.length, "caseName")
             fanSearch.value = ""
         }
     })
@@ -167,11 +170,10 @@ function PSU(brand, name, wattage, rating, modular, image, price) {
     this.price = price
 }
 
-function Case(brand, name, factor, maxGpu, maxCpuCooler, motherboardSupport, sidePanel, fanSize, fanMounts, includedFans, maxAIO, hddSlots, ssdSlots, image, price) {
+function Case(brand, name, factor, motherboardSupport, sidePanel, fanSize, fanMounts, includedFans, maxAIO, hddSlots, ssdSlots, image, price) {
     this.brand = brand
     this.name = name
     this.factor = factor
-    this.maxCpuCooler = maxCpuCooler
     this.motherboardSupport = motherboardSupport
     this.sidePanel = sidePanel
     this.fanSize = fanSize
@@ -444,6 +446,30 @@ let psuList = [
     new PSU("EVGA", "850 BQ", 850, "80+ Bronze", "Da", "https://i.imgur.com/ZJg9hG7.png", 960),
     new PSU("Corsair", "RM1000X", 1000, "80+ Gold", "Da", "https://www.corsair.com/medias/sys_master/images/images/hde/h93/9110102573086/-CP-9020094-NA-Gallery-RMx-1000-02.png", 1440),
     new PSU("be quiet!", "Straight Power 11 1000W", 1000, "80+ Gold", "Da", "https://i.imgur.com/amKlCf1.png", 1800),
+
+
+
+]
+
+let caseList = [
+    new Case("MS", "Stone", "Mid", "mAtx/ATX", "Metal", 120, 5, 0, 240, 2, 2, "https://i.imgur.com/8Gmy0Ap.png", 200),
+    new Case("FSP", "CST110", "Mid", "mAtx/ATX", "Metal", 120, 3, 1, 120, 3, 3, "https://i.imgur.com/k1AjlPY.png", 230),
+    new Case("Zalman", "T7", "Mid", "mAtx/ATX", "Akril", 120, 8, 2, 360, 2, 4, "https://i.imgur.com/9U9F4l8.png", 250),
+    new Case("MS", "Iron", "Mid", "mAtx/ATX", "Staklo", 120, 5, 1, 240, 2, 3, "https://i.imgur.com/Chv5FE6.png", 310),
+    new Case("Antec", "NX220", "Mid", "mAtx/ATX", "Staklo", 120, 6, 1, 240, 2, 3, "https://i.imgur.com/5mKQim9.png", 370),
+    new Case("Gamdias", "Apollo E2", "Mid", "mAtx/ATX", "Staklo", "120/140/200", 8, 2, 280, 3, 4, "https://www.nabava.net/slike/products/55/80/11088055/thumb290_kuciste-gamdias-apollo-e2-window-midi_8ce15ac5.png", 400),
+    new Case("Kolnik", "Bastion ", "Mid", "mAtx/ATX", "Staklo", "120/140", 5, 1, 240, 2, 4, "https://i.imgur.com/eMEzrPm.png", 450),
+    new Case("CoolerMaster", "MasterBox MB520", "Mid", "mAtx/ATX", "Akril", "120/140", 4, 1, 240, 2, 4, "https://i.imgur.com/SUm22e9.png", 520),
+    new Case("DeepCool", "Macube 310P", "Mid", "mAtx/ATX", "Staklo", "120/140", 7, 1, 360, 2, 2, "https://i.imgur.com/PvFP3F3.png", 570),
+    new Case("MS", "Titan 2 Pro", "Mid", "mAtx/ATX", "Staklo", "120/140", 7, 4, 360, 2, 7, "https://i.imgur.com/mONbfKO.png", 600),
+    new Case("Gigabyte", "C200G", "Mid", "mAtx/ATX", "Staklo", "120/140", 6, 1, 280, 2, 2, "https://i.imgur.com/2YUtzUG.png", 650),
+    new Case("Corsair", "Carbide 270R", "Mid", "mAtx/ATX", "Akril", 120, 6, 1, 360, 2, 2, "https://www.corsair.com/medias/sys_master/images/images/h52/h7c/9111058513950/-CC-9011105-WW-Gallery-Carbide-270R-Windowed-01.png", 710),
+    new Case("Thermaltake", "View 31", "Mid", "mAtx/ATX", "Staklo", "120/140/200", 9, 3, 360, 3, 3, "https://i.imgur.com/cVBWfPn.png", 770),
+    new Case("CoolerMaster", "MasterBox MB530P", "Mid", "mAtx/ATX", "Staklo", "120/140", 5, 4, 360, 2, 4, "https://i.imgur.com/iinoWJr.png", 810),
+    new Case("Fractal Design", "Meshify 2", "Mid", "mAtx/ATX", "Metal", "120/140", 9, 3, 420, 6, 2, "https://i.imgur.com/2MqYdN5.png", 870),
+    new Case("be quiet!", "Pure Base 500DX", "Mid", "mAtx/ATX", "Staklo", "120/140", 6, 3, 240, 2, 5, "https://i.imgur.com/hx4ffDg.png", 900),
+    new Case("MSI", "MPG Gunngir 100", "Mid", "mAtx/ATX", "Staklo", "120/140", 7, 4, 360, 2, 4, "https://i.imgur.com/9rzfhA8.png", 970),
+    new Case("NZXT", "H510 Elite", "Mid", "mAtx/ATX", "Staklo", "120/140", 4, 4, 280, 2, 2, "https://nzxt-site-media.s3-us-west-2.amazonaws.com/uploads/product_image/image/2425/large_4d844eae27408573.png", 1300)
 ]
 
 //Dodavanje komponenata u modal
@@ -701,6 +727,52 @@ for (let i = 0; i < psuList.length; i++) { //PSU
         </div>`
 }
 
+for (let i = 0; i < caseList.length; i++) { //Kuciste
+    addCase.innerHTML +=
+        `<div class="row pc-part modal-close" id="case${i+1}" onclick="CaseAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
+                <img src="${caseList[i].image}" class="responsive-img">
+            </div>
+            <hr>
+            <div class="col s12 m12 l12 row center-align">
+                <p class="comp-modal-title flow-text" id="caseName${i+1}">${caseList[i].brand+" "+caseList[i].name}</p>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Faktor veličine:<br>${caseList[i].factor} tower</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Podrška matične ploče:<br>${caseList[i].motherboardSupport}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Podrška matične ploče:<br>${caseList[i].motherboardSupport}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Materijal bočne ploče:<br>${caseList[i].sidePanel}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Veličina ventilatora:<br>${caseList[i].fanSize}mm</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Maks. ventilatora:<br>${caseList[i].fanSize}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Ugrađeni ventilatori:<br>${caseList[i].includedFans}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Maks. AIO hlađenje:<br>${caseList[i].maxAIO}mm</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">3.5" mjesta:<br>${caseList[i].hddSlots}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">2.5" mjesta:<br>${caseList[i].ssdSlots}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Cijena:<br>${caseList[i].price}</p>
+                </div>
+            </div>
+        </div>`
+}
+
 //Seacrh funkcija
 function Search(searchBar, list, searchBy) {
 
@@ -725,23 +797,28 @@ document.getElementById("cpuSearch").addEventListener("input", () => { //CPU
 document.getElementById("coolerSearch").addEventListener("input", () => { //Hladnjaci
     Search(coolerSearch, coolerList.length - 4, "coolerName")
 })
+
 document.getElementById("mbSearch").addEventListener("input", () => { //MB
     Search(mbSearch, mbList.length, "mbName")
 })
+
 document.getElementById("ramSearch").addEventListener("input", () => { //RAM
     Search(ramSearch, ramList.length, "ramName")
 })
+
 gpuSearch.addEventListener("input", () => { //GPU
     Search(gpuSearch, gpuList.length, "gpuName")
 })
+
 storageSearch.addEventListener("input", () => { //Pohrana podataka
     Search(storageSearch, storageList.length, "storageName")
 })
+
 psuSearch.addEventListener("input", () => { //PSU
     Search(psuSearch, psuList.length, "psuName")
 })
 caseSearch.addEventListener("input", () => { //Kuciste
-
+    Search(caseSearch, caseList.length, "caseName")
 })
 fanSearch.addEventListener("input", () => { //Dodatno hladenje
 
@@ -763,7 +840,7 @@ function CpuAdded(i) {
 
     //Dodavanje besplatnog hladnjaka
     if (finalCooler == null || finalCooler.price == 0) { //Provjerava se postoji li vec hladnjak(ako ne postoji izlaz je true)
-        if (finalCpu.cooler.length > 2) { //Provjerava se dolazi li hladnjak s procesorom
+        if (finalCpu.cooler.length > 2) { //Provjerava se dolazi li hladnjak s procesorom(ako je cooler.lenght veci od dva znaci da ne moze biti "Ne")
             for (let i = 0; i < 4; i++) {
                 if (coolerList[i].name == finalCpu.cooler) { //Dodavanje hladnjaka
                     CoolerAdded("cooler" + i)
@@ -910,6 +987,22 @@ function PsuAdded(i) {
     </div>
     `
     priceOfPsu = finalPsu.price
+    Price()
+}
+
+function CaseAdded(i) {
+    i = String(i).split("e")[1]
+    finalCase = caseList[i - 1]
+
+    cCase.innerHTML = `
+    <div class="row">    
+        <p class="comp-text center-align flow-text">${finalCase.brand+" "+finalCase.name}</p>
+        <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
+            <img src="${finalCase.image}" class="selected-img responsize-img">
+        </div>
+    </div>
+    `
+    priceOfCase = finalCase.price
     Price()
 }
 
@@ -1095,6 +1188,7 @@ function PerformanceOutput() {
         document.getElementById("gaming").innerHTML = gamingScore + "/100"
     }
 
+    //Produktivnost
     function WorkstationPerformance() {
         workstationScore = Math.round((finalCpu.score + finalGpu.score) * 0.0029) //Broj je dobiven dijeljenjem broja 100 s najvecom mogucom performansom
 
@@ -1239,8 +1333,6 @@ function PowerCalc() {
 
     systemPower = Math.round(systemPower * 1.3) //Prava snaga uvijek je malo veca nego zbroj TDP snaga
 
-    document.getElementById("power").innerHTML = `Snaga: ${systemPower}W`
-
     //Preporucena snaga
     reccomendedPower = Math.round(systemPower * 1.6) //Uvijek je pozeljeno imati napajanje jace nego potrebno
 
@@ -1268,10 +1360,11 @@ function Price() {
     cpuPrice.innerHTML = "Cijena procesora:<br>" + priceOfCpu + "kn" //Ispis cijena na stranicu
     coolerPrice.innerHTML = "Cijena hladnjaka za procesor:<br>" + priceOfCooler + "kn"
     mbPrice.innerHTML = "Cijena matične ploče:<br>" + priceOfMb + "kn"
-    ramPrice.innerHTML = "Cijena rande memorije:<br>" + priceOfRam + "kn"
+    ramPrice.innerHTML = "Cijena radne memorije:<br>" + priceOfRam + "kn"
     gpuPrice.innerHTML = "Cijena grafičke kartice:<br>" + priceOfGpu + "kn"
     psuPrice.innerHTML = "Cijena napajanja:<br>" + priceOfPsu + "kn"
     storagePrice.innerHTML = "Cijena pohrane podataka:<br>" + priceOfStorage + "kn"
+    casePrice.innerHTML = "Cijena kućišta:<br>" + priceOfCase + "kn"
     pcPrice.innerHTML = "Ukupna cijena:<br>" + totalPrice + "kn"
 
     PowerCalc() //Funkcije su dodane na kraj Price() funkcije jer se ona izvrsava svaki put kada se updatea neka komponenta sto se treba desiti i za ostale funkcije
