@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () { //EventListener slus
             caseSearch.value = ""
             Search(caseSearch, caseList.length, "caseName")
             fanSearch.value = ""
+            Search(fanSearch, fanList.length, "fanName")
         }
     })
 })
@@ -472,6 +473,18 @@ let caseList = [
     new Case("NZXT", "H510 Elite", "Mid", "mAtx/ATX", "Staklo", "120/140", 4, 4, 280, 2, 2, "https://nzxt-site-media.s3-us-west-2.amazonaws.com/uploads/product_image/image/2425/large_4d844eae27408573.png", 1300)
 ]
 
+let fanList = [
+    new CaseFan("Arctic", "F12", 120, 1, "https://i.imgur.com/j42zn4B.png", 30),
+    new CaseFan("be quiet!", "Pure Wings 2", 80, 1, "https://i.imgur.com/YBE42O3.png", 70),
+    new CaseFan("SilentiumPC", "Corona HP 140", 140, 1, "https://i.imgur.com/FQYkyH2.png", 85),
+    new CaseFan("Noctua", "NF-P12 PWM", 120, 1, "https://i.imgur.com/xxRX0yg.png", 130),
+    new CaseFan("Thermaltake", "Pure Duo 12 ARGB", 120, 2, "https://i.imgur.com/9pu4vHN.png", 220),
+    new CaseFan("Bit Force", "Spectrum ARGB", 120, 3, "https://i.imgur.com/nMsKiVf.png", 270),
+    new CaseFan("Thermaltake", "Pure Plus 12 RGB", 120, 3, "https://i.imgur.com/OWqqZV7.png", 320),
+    new CaseFan("Arctic", "F14 PWM PST", 140, 5, "https://i.imgur.com/MgZuiTf.png", 320),
+    new CaseFan("Gamdias", "Aeolus M2-1205R", 120, 5, "https://i.imgur.com/5O8FU2z.png", 400)
+]
+
 //Dodavanje komponenata u modal
 for (let i = 0; i < cpuList.length; i++) { //CPU
     addCpu.innerHTML += `
@@ -727,7 +740,7 @@ for (let i = 0; i < psuList.length; i++) { //PSU
         </div>`
 }
 
-for (let i = 0; i < caseList.length; i++) { //Kuciste
+for (let i = 0; i < caseList.length; i++) { //Kucista
     addCase.innerHTML +=
         `<div class="row pc-part modal-close" id="case${i+1}" onclick="CaseAdded(this.id)">
             <div class="col s12 m8 l2 offset-m2 offset-l5">
@@ -743,16 +756,13 @@ for (let i = 0; i < caseList.length; i++) { //Kuciste
                     <p class="comp-modal-text flow-text">Podrška matične ploče:<br>${caseList[i].motherboardSupport}</p>
                 </div>
                 <div class="col s6 m3 l3">
-                    <p class="comp-modal-text flow-text">Podrška matične ploče:<br>${caseList[i].motherboardSupport}</p>
-                </div>
-                <div class="col s6 m3 l3">
                     <p class="comp-modal-text flow-text">Materijal bočne ploče:<br>${caseList[i].sidePanel}</p>
                 </div>
                 <div class="col s6 m3 l3">
                     <p class="comp-modal-text flow-text">Veličina ventilatora:<br>${caseList[i].fanSize}mm</p>
                 </div>
                 <div class="col s6 m3 l3">
-                    <p class="comp-modal-text flow-text">Maks. ventilatora:<br>${caseList[i].fanSize}</p>
+                    <p class="comp-modal-text flow-text">Maks. ventilatora:<br>${caseList[i].fanMounts}</p>
                 </div>
                 <div class="col s6 m3 l3">
                     <p class="comp-modal-text flow-text">Ugrađeni ventilatori:<br>${caseList[i].includedFans}</p>
@@ -773,6 +783,27 @@ for (let i = 0; i < caseList.length; i++) { //Kuciste
         </div>`
 }
 
+for (let i = 0; i < fanList.length; i++) { //Dodatno hladenje
+    addFans.innerHTML +=
+        `<div class="row pc-part modal-close" id="fans${i+1}" onclick="FansAdded(this.id)">
+            <div class="col s12 m8 l2 offset-m2 offset-l5">
+                <img src="${fanList[i].image}" class="responsive-img">
+            </div>
+            <hr>
+            <div class="col s12 m12 l12 row center-align">
+                <p class="comp-modal-title flow-text" id="fanName${i+1}">${fanList[i].brand+" "+fanList[i].name}</p>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Broj ventilatora:<br>${fanList[i].number}</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Veličina ventilatora:<br>${fanList[i].size}mm</p>
+                </div>
+                <div class="col s6 m3 l3">
+                    <p class="comp-modal-text flow-text">Cijena:<br>${fanList[i].price}kn</p>
+                </div>
+            </div>
+        </div>`
+}
 //Seacrh funkcija
 function Search(searchBar, list, searchBy) {
 
@@ -821,7 +852,7 @@ caseSearch.addEventListener("input", () => { //Kuciste
     Search(caseSearch, caseList.length, "caseName")
 })
 fanSearch.addEventListener("input", () => { //Dodatno hladenje
-
+    Search(fanSearch, fanList.length, "fanName")
 })
 
 //Dodavanje komponenata
@@ -1003,6 +1034,22 @@ function CaseAdded(i) {
     </div>
     `
     priceOfCase = finalCase.price
+    Price()
+}
+
+function FansAdded(i) {
+    i = String(i).split("s")[1]
+    finalFans = fanList[i - 1]
+
+    cFans.innerHTML = `
+    <div class="row">    
+        <p class="comp-text center-align flow-text">${finalFans.brand+" "+finalFans.name}</p>
+        <div class="col s6 m6 l6 offset-s3 offset-m3 offset-l3">    
+            <img src="${finalFans.image}" class="selected-img responsize-img">
+        </div>
+    </div>
+    `
+    priceOfFans = finalFans.price
     Price()
 }
 
@@ -1340,7 +1387,53 @@ function PowerCalc() {
     document.getElementById("reccomendedPower").innerHTML = `Najmanja preporučena snaga napajanja: ${reccomendedPower}W`
 }
 
+function Warnings() { //Moguce nekompatibilnosti/preporuke
+    document.getElementById("warnings").innerHTML = `<hr><p class="title flow-text">Moguća upozorenja</p>`
 
+    if (finalCpu != null && finalGpu != null) { //Bottleneck
+        if (finalGpu.score - finalCpu.score >= 3500) {
+            document.getElementById("warnings").innerHTML += `
+                    <p class="text flow-text">Procesor nije dovoljno jak za odabranu grafičku karticu</p>
+            `
+        }
+    }
+
+    if (finalCase != null && finalFans != null) { //Ventilatori
+        if (finalCase.includedFans + finalFans.number > finalCase.fanMounts) {
+            document.getElementById("warnings").innerHTML += `
+                    <p class="text flow-text">Ukupan broj ventilatora veći je nego što kućište podržava</p>
+            `
+        }
+
+        if (String(finalCase.fanSize).includes(String(finalFans.size)) === false) {
+            document.getElementById("warnings").innerHTML += `
+                    <p class="text flow-text">Odabrani ventilatori nisu kompatibilni s kućištem</p>
+            `
+        }
+    }
+
+    if (finalPsu != null) { //Napajanje
+        if (finalPsu.wattage < reccomendedPower) {
+            document.getElementById("warnings").innerHTML += `
+                    <p class="text flow-text">Snaga napajanja manja je nego preporučena</p>
+            `
+        }
+
+        if (finalPsu.wattage < systemPower) {
+            document.getElementById("warnings").innerHTML += `
+                    <p class="text flow-text">Snaga napajanja nije dovoljna</p>
+            `
+        }
+    }
+
+    if(finalCooler!=null && finalCase!=null && finalCooler.constructor.name=="AIOCooler" && finalCooler.size>finalCase.maxAIO){
+        document.getElementById("warnings").innerHTML += `
+        <p class="text flow-text">Ovo kućište ne podržava odabrani AIO hladnjak</p>
+`
+    }
+
+    document.getElementById("warnings").innerHTML += `<hr>`
+}
 
 //Cijena
 let priceOfCpu = 0 //Postavljanje cijena na 0
@@ -1365,8 +1458,10 @@ function Price() {
     psuPrice.innerHTML = "Cijena napajanja:<br>" + priceOfPsu + "kn"
     storagePrice.innerHTML = "Cijena pohrane podataka:<br>" + priceOfStorage + "kn"
     casePrice.innerHTML = "Cijena kućišta:<br>" + priceOfCase + "kn"
+    fanPrice.innerHTML = "Cijena dodatnog hlađenja:<br>" + priceOfFans + "kn"
     pcPrice.innerHTML = "Ukupna cijena:<br>" + totalPrice + "kn"
 
     PowerCalc() //Funkcije su dodane na kraj Price() funkcije jer se ona izvrsava svaki put kada se updatea neka komponenta sto se treba desiti i za ostale funkcije
     PerformanceOutput()
+    Warnings()
 }
